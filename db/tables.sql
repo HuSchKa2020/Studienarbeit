@@ -4,7 +4,7 @@ USE IFULTool; -- Interaktives Fehler- und Loesungs- Tool
 
 CREATE TABLE Anwender
 (
-    AnwenderIDI     INTEGER(7) SERIAL PRIMARY KEY,
+    AnwenderID     INTEGER(7) SERIAL PRIMARY KEY,
     Vorname         VARCHAR(31),
     Nachname        VARCHAR(31),
     Email           VARCHAR(63),
