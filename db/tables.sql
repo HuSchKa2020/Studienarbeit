@@ -4,61 +4,62 @@ USE IFULTool; -- Interaktives Fehler- und Loesungs- Tool
 
 CREATE TABLE Anwender
 (
-    AnwenderID     INTEGER(7) SERIAL PRIMARY KEY,
+    AnwenderID      SERIAL PRIMARY KEY,
     Vorname         VARCHAR(31),
     Nachname        VARCHAR(31),
     Email           VARCHAR(63),
-    Telefon         VARCHAR(31);
+    Telefon         VARCHAR(31),
     Password        VARCHAR(63),
-    AbteilungsID    INTEGER(7)
+    AbteilungsID    INTEGER
 );
 
 CREATE TABLE Abteilung
 (
-    AbteilungsID    INTEGER(7) SERIAL PRIMARY KEY,
+    AbteilungsID    SERIAL PRIMARY KEY,
     Abteilungsname  VARCHAR(31),
     Standort        VARCHAR(31)
 );
 
 CREATE TABLE Rolle
 (
-    RollenID        Integer(7) SERIAL PRIMARY KEY,
+    RollenID        SERIAL PRIMARY KEY,
     Beschreibung    VARCHAR(255)
 );
 
 CREATE TABLE Berechtigung
 (
-    BerechtigungsID	INTEGER(7) SERIAL PRIMARY KEY,
+    BerechtigungsID SERIAL PRIMARY KEY,
     Beschreibung	VARCHAR(255)
 );
 
 CREATE TABLE Fehler
 (
-    FehlerID		    INTEGER(7) SERIAL PRIMARY KEY,
-    Titel               VARCHAR(31)
+    FehlerID		    SERIAL PRIMARY KEY,
+    Titel               VARCHAR(31),
     Beschreibung        VARCHAR(255),
     Lösung			    VARCHAR(255),
     Auswirkung          VARCHAR(255),
     Status              VARCHAR(255),
-    SoftwareID          INTEGER(7),
-    AnwenderID          INTEGER(7)
+    SoftwareID          INTEGER,
+    AnwenderID          INTEGER
 );
 
 CREATE TABLE Software
 (
-    SoftwareID		    INTEGER(7) SERIAL PRIMARY KEY,
+    SoftwareID		    SERIAL PRIMARY KEY,
     Hersteller          VARCHAR(31),
-    Softwarename		VARCHAR(31),
+    Softwarename		VARCHAR(31)
 );
 
 CREATE TABLE AnwenderRolle
 (
-    AnwenderID          INTEGER(7) SERIAL PRIMARY KEY,
-    RollenID			INTEGER(7)
+    AnwenderID          SERIAL PRIMARY KEY,
+    RollenID			INTEGER
 );
 
 CREATE TABLE RollenBerechtigung
 (
-    RollenID			INTEGER(7),
-    BerechtigungsID		INTEGER(7)
+    RollenID			SERIAL PRIMARY KEY,
+    BerechtigungsID		INTEGER
 );
+
