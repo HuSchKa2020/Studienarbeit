@@ -9,6 +9,9 @@ port = 5000;
 app.use(cors());
 app.use(express.json());
 
+// Import routes
+app.use("/fehler", require("./routes/fehler"));
+
 app.listen(port, () => {
   console.log(`server has started on port ${port}`);
 });
