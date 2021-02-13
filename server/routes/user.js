@@ -34,7 +34,7 @@ router.post("/register", async (req, res) => {
       // Anwender existier schon
       res.json({
         error: true,
-        message: `Nutzer mit der ${email} existiert schon!`,
+        message: `Nutzer mit der Email '${email}' existiert schon!`,
       });
     }
   } catch (err) {
