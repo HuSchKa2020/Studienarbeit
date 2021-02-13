@@ -15,7 +15,7 @@ router.post("/register", async (req, res) => {
       [email]
     );
     console.log(user);
-    if (true || user.rowCount === 0) {
+    if (user.rowCount === 0) {
       // Anwender existiert noch nicht
       bcrypt.hash(password + pepper, saltRounds, async (err, hash) => {
         if (err) throw err;
