@@ -1,9 +1,12 @@
 const express = require("express");
 const router = express.Router();
+const bcrypt = require("bcrypt");
 const pool = require("../db");
 
-router.post("/register", (req, res) => {
-  res.send("Hello World");
+const saltRounds = 12;
+
+router.post("/register", async (req, res) => {
+  
 });
 
 module.exports = router;
