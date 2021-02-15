@@ -11,6 +11,7 @@ app.use(express.json());
 
 // Import routes
 app.use("/fehler", require("./routes/fehler"));
+app.use("/user", require("./routes/user"));
 
 app.listen(port, () => {
   console.log(`server has started on port ${port}`);
