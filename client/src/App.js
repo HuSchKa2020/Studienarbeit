@@ -13,8 +13,17 @@ function App() {
         username: loginEmail,
         password: loginPassword,
       },
-      //withCredentials: true,
+      withCredentials: true,
       url: "http://localhost:5000/user/login",
+    }).then((res) => console.log(res));
+  };
+
+  const requestTest = () => {
+    Axios({
+      method: "GET",
+      data: {},
+      withCredentials: true,
+      url: "http://localhost:5000/user",
     }).then((res) => console.log(res));
   };
 
@@ -30,6 +39,7 @@ function App() {
         onChange={(e) => setLoginPassword(e.target.value)}
       />
       <button onClick={login}>Submit</button>
+      <button onClick={requestTest}>getUser</button>
     </div>
   );
 }
