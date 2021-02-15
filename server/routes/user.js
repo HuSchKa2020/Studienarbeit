@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const passport = require("passport");
+const passportLocal = require("passport-local").Strategy;
 const pool = require("../db");
 
 const saltRounds = 12;
@@ -9,12 +11,10 @@ const pepper = "/z§E52s+l20/dc";
 router.post("/register", async (req, res) => {
   try {
     const { email, password, vorname, nachname, telefon } = req.body;
-    console.log({ email, password, vorname, nachname, telefon });
     const user = await pool.query(
       "SELECT email FROM anwender WHERE email = $1",
       [email]
     );
-    console.log(user);
     if (user.rowCount === 0) {
       // Anwender existiert noch nicht
       bcrypt.hash(password + pepper, saltRounds, async (err, hash) => {
@@ -41,5 +41,7 @@ router.post("/register", async (req, res) => {
     console.log(err);
   }
 });
+
+
 
 module.exports = router;
