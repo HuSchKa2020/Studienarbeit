@@ -55,7 +55,7 @@ router.put("/:fehlerid", async (req, res) => {
       anwenderid,
     } = req.body;
     const updateFehler = await pool.query(
-      "UPDATE fehler SET titel = $2, beschreibung = $3, lösung = $4, auswirkung = $5, status = $6, softwareid = $7, anwenderid = $8 WHERE fehlerid = $1",
+      "UPDATE fehler SET titel = $2, beschreibung = $3, lösung = $4, auswirkung = $5, status = $6, softwareid = $7, anwenderid = $8 WHERE fehlerid = $1 RETURNING *",
       [
         fehlerid,
         titel,
