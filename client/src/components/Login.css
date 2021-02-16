@@ -1,0 +1,21 @@
+body {
+  background-color: #dcdcdc;
+}
+
+form {
+  padding: 10px 40px;
+  border: 2px solid black;
+  border-radius: 10%;
+}
+
+.field {
+  padding: 10px;
+}
+
+.field label {
+  padding-right: 5px;
+}
+
+h1 {
+  color: black;
+}
