@@ -39,11 +39,20 @@ app.use("/user", require("./routes/user"));
 app.post("/user/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.send("Email oder Passwort sind falsch");
+    if (!user)
+      res.send({
+        error: false,
+        success: false,
+        message: "Email oder Passwort sind falsch",
+      });
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
-        res.send("Erfolgreich Authentifiziert");
+        res.send({
+          error: false,
+          success: true,
+          message: "Erfolgreich Authentifiziert",
+        });
       });
     }
   })(req, res, next);
