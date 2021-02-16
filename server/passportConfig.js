@@ -31,7 +31,15 @@ function initalize(passport) {
     );
   };
 
-  passport.use(new localStrategy(authenticate));
+  passport.use(
+    new localStrategy(
+      {
+        usernameField: "email",
+        passwordField: "password",
+      },
+      authenticate
+    )
+  );
 
   /**
    * ToDo: Cookies für den Nutzer, nochmal genauer mit beschaeftigen
