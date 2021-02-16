@@ -7,7 +7,6 @@ router.get("/", (req, res) => {
   res.send("Hello World");
 });
 
-
 //create Fail
 router.post("/", async (req, res) => {
   try {
@@ -81,6 +80,11 @@ router.put("/:fehlerid", async (req, res) => {
         message: `Der Eintrag wurde erfolgreich geändert`,
         fehler: updateFehler.rows[0],
       });
+    }
+  } catch (err) {
+    console.log(err.message);
+  }
+});
 
 router.delete("/:id", async (req, res) => {
   try {
@@ -95,7 +99,6 @@ router.delete("/:id", async (req, res) => {
       res.json({ error: false, message: `Fehler: ${id} gelöscht!` });
     } else {
       res.json({ error: true, message: `Fehler: ${id} existiert nicht!` });
-
     }
   } catch (err) {
     console.log(err.message);
