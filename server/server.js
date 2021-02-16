@@ -1,12 +1,9 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
-
-
 const passport = require("passport");
 const cookieParser = require("cookie-parser");
 const session = require("express-session");
-
 const pool = require("./db");
 
 port = 5000;
@@ -51,8 +48,6 @@ app.post("/user/login", (req, res, next) => {
     }
   })(req, res, next);
 });
-
-
 
 app.listen(port, () => {
   console.log(`server has started on port ${port}`);
