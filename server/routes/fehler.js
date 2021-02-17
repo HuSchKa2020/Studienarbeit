@@ -59,6 +59,34 @@ router.post("/", async (req, res) => {
   }
 });
 
+//get Fail ---
+
+//get Fail by ID
+router.get("/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const fehlerid = await pool.query(
+      "SELECT * FROM fehler WHERE fehlerid = $1",
+      [id]
+    );
+
+    if (fehlerid.rowCount === 0) {
+      res.json({
+        error: true,
+        message: `Der Fehler [` + id + `] existert noch nicht.`,
+      });
+    } else {
+      res.json({
+        error: false,
+        message: `Der Fehler wurde gefunden`,
+        fehler: fehlerid.rows[0],
+      });
+    }
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
 //update Fail
 router.put("/:fehlerid", async (req, res) => {
   try {
