@@ -16,6 +16,40 @@ code {
   position: fixed;
   top: 50%;
   left: 50%;
-  /* bring your own prefixes */
   transform: translate(-50%, -50%);
+}
+
+.inputField {
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  height: 30px;
+  padding: 2px 5px;
+  font-size: large;
+}
+
+.inputField:focus {
+  outline: none; /* entfernt falschen Rand am InputField;*/
+  border: 2px solid black;
+  border-radius: 50px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  margin: 10px 5px;
+  color: white;
+}
+
+.btn.neutral {
+  background: #316fb7;
+}
+
+.btn .positive {
+  background: green;
+}
+.btn .negative {
+  background: red;
 }
