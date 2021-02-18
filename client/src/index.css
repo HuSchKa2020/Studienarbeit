@@ -1,13 +1,55 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
+}
+
+.centered {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.inputField {
+  background-color: white;
+  border: 2px solid #ccc;
+  border-radius: 50px;
+  height: 30px;
+  padding: 2px 5px;
+  font-size: large;
+}
+
+.inputField:focus {
+  outline: none; /* entfernt falschen Rand am InputField;*/
+  border: 2px solid black;
+  border-radius: 50px;
+}
+
+.btn {
+  width: 100%;
+  padding: 10px 20px;
+  border-radius: 50px;
+  border: none;
+  margin: 10px 5px;
+  color: white;
+}
+
+.btn.neutral {
+  background: #316fb7;
+}
+
+.btn .positive {
+  background: green;
+}
+.btn .negative {
+  background: red;
 }
