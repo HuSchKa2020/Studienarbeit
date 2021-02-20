@@ -6,7 +6,6 @@ const passportLocal = require("passport-local").Strategy;
 const pool = require("../db");
 
 const saltRounds = 12;
-const pepper = "/z§E52s+l20/dc";
 
 router.post("/register", async (req, res) => {
   try {
@@ -17,19 +16,23 @@ router.post("/register", async (req, res) => {
     );
     if (user.rowCount === 0) {
       // Anwender existiert noch nicht
-      bcrypt.hash(password + pepper, saltRounds, async (err, hash) => {
-        if (err) throw err;
-        const newUser = await pool.query(
-          "INSERT INTO anwender (vorname, nachname, email, telefon, password) VALUES ($1, $2, $3, $4, $5) RETURNING *;",
-          [vorname, nachname, email, telefon, hash]
-        );
+      bcrypt.hash(
+        password + process.env.PASSWORD_PEPPER,
+        saltRounds,
+        async (err, hash) => {
+          if (err) throw err;
+          const newUser = await pool.query(
+            "INSERT INTO anwender (vorname, nachname, email, telefon, password) VALUES ($1, $2, $3, $4, $5) RETURNING *;",
+            [vorname, nachname, email, telefon, hash]
+          );
 
-        res.json({
-          error: false,
-          message: `Nutzer erfolgreich registriert`,
-          user: newUser.rows[0],
-        });
-      });
+          res.json({
+            error: false,
+            message: `Nutzer erfolgreich registriert`,
+            user: newUser.rows[0],
+          });
+        }
+      );
     } else {
       // Anwender existier schon
       res.json({

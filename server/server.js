@@ -20,7 +20,7 @@ app.use(express.json());
 //ToDo: genauer ueber express-session und cookie parser informieren
 app.use(
   session({
-    secret: "secretcode",
+    secret: process.env.SESSION_SECRET,
     resave: true,
     saveUnitialized: true,
   })
