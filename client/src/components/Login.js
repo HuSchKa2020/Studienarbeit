@@ -57,7 +57,7 @@ const Login = () => {
           />
         </div>
         <button className="btn neutral" type="submit" onClick={handleSubmit}>
-          Login
+          <p className="text">Login</p>
         </button>
       </form>
     </>
