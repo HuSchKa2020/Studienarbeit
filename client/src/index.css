@@ -35,21 +35,21 @@ code {
 }
 
 .btn {
-  width: 100%;
-  padding: 10px 20px;
+  width: 60%;
+  padding: 0px;
   border-radius: 50px;
   border: none;
-  margin: 10px 5px;
   color: white;
+  margin: 0px;
 }
 
 .btn.neutral {
   background: #316fb7;
 }
 
-.btn .positive {
+.btn.positive {
   background: green;
 }
-.btn .negative {
+.btn.negative {
   background: red;
 }
