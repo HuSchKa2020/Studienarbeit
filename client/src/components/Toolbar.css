@@ -1,0 +1,11 @@
+.toolbar {
+  height: 40px;
+  padding: 10px 50px;
+  background-color: #316fb7;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.toolbar-item {
+  color: white;
+}
