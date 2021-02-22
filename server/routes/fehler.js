@@ -43,14 +43,14 @@ router.post("/", async (req, res) => {
 
     if (newFehler.rowCount === 0) {
       res.json({
-        error: false,
+        error: true,
         message: `Der Eintrag konnte nicht erstellt werden`,
         fehler: newFehler.rows[0],
       });
     } else {
       //Eintrag konnte nicht erstellt werden
       res.json({
-        error: true,
+        error: false,
         message: `Der Eintrag wurde erfolgreich erstellt`,
       });
     }
@@ -116,12 +116,12 @@ router.put("/:fehlerid", async (req, res) => {
 
     if (updateFehler.rowCount === 0) {
       res.json({
-        error: false,
+        error: true,
         message: `Der Eintrag konnte nicht geändert werden, da dieser nicht existiert.`,
       });
     } else {
       res.json({
-        error: true,
+        error: false,
         message: `Der Eintrag wurde erfolgreich geändert`,
         fehler: updateFehler.rows[0],
       });
