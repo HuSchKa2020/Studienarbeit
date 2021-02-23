@@ -5,6 +5,7 @@ import Fehlertabelle from "./components/Fehlertabelle";
 import Login from "./components/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Toolbar from "./components/Toolbar";
+import { fehlers } from "./components/fehlers";
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
             <p>HAUPTSEITE</p>
           </Route>
           <Route exact path="/fehler">
-            <Fehlertabelle />
+            <Fehlertabelle fehlers />
           </Route>
           <Route exact path="/fehler/erstellen">
             <p>FEHLER ERSTELLEN ANSICHT</p>
