@@ -2,11 +2,10 @@ import React from "react";
 
 import "./Fehlertabelle.css";
 
-import { fehlers } from "./fehlers";
 import Fehlerzeile from "./Fehlerzeile";
 
-const Fehlertabelle = () => {
-  const [fehlerliste, setFehlerliste] = React.useState(fehlers);
+const Fehlertabelle = (fehlerarray) => {
+  const [fehlerliste, setFehlerliste] = React.useState(fehlerarray.fehlerarray);
   return (
     <>
       {fehlerliste.map((fehler) => {

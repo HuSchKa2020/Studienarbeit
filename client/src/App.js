@@ -8,6 +8,7 @@ import Toolbar from "./components/Toolbar";
 import { fehlers } from "./components/fehlers";
 
 function App() {
+  console.log(fehlers);
   return (
     <Router>
       <Switch>
@@ -23,7 +24,7 @@ function App() {
             <p>HAUPTSEITE</p>
           </Route>
           <Route exact path="/fehler">
-            <Fehlertabelle fehlers />
+            <Fehlertabelle fehlerarray={fehlers} />
           </Route>
           <Route exact path="/fehler/erstellen">
             <p>FEHLER ERSTELLEN ANSICHT</p>
