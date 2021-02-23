@@ -3,8 +3,6 @@ import "./App.css";
 import Login from "./components/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Toolbar from "./components/Toolbar";
-import Axios from "axios";
-import { useHistory } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 
 function App() {

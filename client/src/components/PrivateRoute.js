@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Redirect, Route } from "react-router-dom";
 import Axios from "axios";
-import { URL_POST_LOGIN } from "../constants";
+import { URL_GET_USER } from "../constants";
 
 const PrivateRoute = ({ component: Component, ...rest }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(true);
@@ -10,7 +10,7 @@ const PrivateRoute = ({ component: Component, ...rest }) => {
     Axios({
       method: "GET",
       withCredentials: true,
-      url: "http://localhost:5000/user/",
+      url: URL_GET_USER,
     }).then((res) => {
       setIsLoggedIn(res.data.loggedIn);
     });

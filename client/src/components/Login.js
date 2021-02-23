@@ -19,7 +19,7 @@ const Login = () => {
         password: password,
       },
       withCredentials: true,
-      url: "http://localhost:5000/user/login",
+      url: URL_POST_LOGIN,
     }).then((res) => {
       console.log(res);
       const data = res.data;
