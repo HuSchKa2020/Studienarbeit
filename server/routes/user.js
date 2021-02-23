@@ -95,7 +95,7 @@ router.get("/", (req, res) => {
   } else {
     res.send({
       error: false,
-      loggedIn: true,
+      loggedIn: false,
       message: "Kein Nutzer angemeldet!",
     });
   }

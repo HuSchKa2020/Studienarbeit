@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Login from "./components/Login";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Toolbar from "./components/Toolbar";
+import PrivateRoute from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -16,23 +17,11 @@ function App() {
         </Route>
         <>
           <Toolbar />
-          <Route exact path="/">
-            <p>HAUPTSEITE</p>
-          </Route>
-          <Route exact path="/fehler">
-            <p>FEHLER ANISCHT</p>
-          </Route>
-          <Route exact path="/fehler/erstellen">
-            <p>FEHLER ERSTELLEN ANSICHT</p>
-          </Route>
-          <Route exact path="/analyse">
-            <p>ANALYSE TERMINAL</p>
-          </Route>
-          <Route
-            exact
-            path="/fehler/ansicht/:id"
-            children={<p>EINZELNE FEHLERANSICHT</p>}
-          />
+          <PrivateRoute exact path="/" component={dummy} />
+          <PrivateRoute exact path="/fehler" component={dummy} />
+          <PrivateRoute exact path="/fehler/erstellen" component={dummy} />
+          <PrivateRoute exact path="/analyse" component={dummy} />
+          <PrivateRoute exact path="/fehler/ansicht/:id" component={dummy} />
         </>
         <Route exact path="*">
           <p>ERROR</p>
@@ -41,5 +30,9 @@ function App() {
     </Router>
   );
 }
+
+const dummy = () => {
+  return <p>DUMMY</p>;
+};
 
 export default App;

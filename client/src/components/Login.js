@@ -2,10 +2,13 @@ import React, { useState } from "react";
 import { URL_POST_LOGIN } from "../constants";
 import Axios from "axios";
 import styles from "./Login.css";
+import { useHistory } from "react-router-dom";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+
+  const history = useHistory();
 
   const handleSubmit = (e) => {
     e.preventDefault(); // Seite nicht automatisch neu laden
@@ -16,12 +19,13 @@ const Login = () => {
         password: password,
       },
       withCredentials: true,
-      url: "http://localhost:5000/user/login",
+      url: URL_POST_LOGIN,
     }).then((res) => {
       console.log(res);
       const data = res.data;
       if (data.success === true) {
         // Login erfolgreich
+        history.push("/");
         console.log(data.message);
       } else {
         // Login nicht erfolreich
