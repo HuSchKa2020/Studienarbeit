@@ -45,8 +45,60 @@ router.post("/register", async (req, res) => {
   }
 });
 
+// Login Route
+router.post("/login", (req, res, next) => {
+  passport.authenticate("local", (err, user, info) => {
+    if (err) throw err;
+    if (!user)
+      res.send({
+        error: false,
+        success: false,
+        message: "Email oder Passwort sind falsch",
+      });
+    else {
+      req.logIn(user, (err) => {
+        if (err) throw err;
+        res.send({
+          error: false,
+          success: true,
+          message: "Erfolgreich Authentifiziert",
+        });
+      });
+    }
+  })(req, res, next);
+});
+
+router.get("/logout", (req, res) => {
+  if (req.user) {
+    req.logout();
+    res.send({
+      error: false,
+      success: true,
+      message: "Erfolgreich ausgeloggt",
+    });
+  } else {
+    res.send({
+      error: true,
+      success: false,
+      message: "Kein Nutzer angemeldet der ausgeloggt werden kann!",
+    });
+  }
+});
+
 router.get("/", (req, res) => {
-  res.send(req.user);
+  if (req.user) {
+    res.send({
+      error: false,
+      loggedIn: true,
+      message: "Nutzer angemeldet!",
+    });
+  } else {
+    res.send({
+      error: false,
+      loggedIn: true,
+      message: "Kein Nutzer angemeldet!",
+    });
+  }
 });
 
 module.exports = router;

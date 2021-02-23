@@ -35,28 +35,7 @@ require("./passportConfig")(passport);
 app.use("/fehler", require("./routes/fehler"));
 app.use("/user", require("./routes/user"));
 
-// Login Route
-app.post("/user/login", (req, res, next) => {
-  passport.authenticate("local", (err, user, info) => {
-    if (err) throw err;
-    if (!user)
-      res.send({
-        error: false,
-        success: false,
-        message: "Email oder Passwort sind falsch",
-      });
-    else {
-      req.logIn(user, (err) => {
-        if (err) throw err;
-        res.send({
-          error: false,
-          success: true,
-          message: "Erfolgreich Authentifiziert",
-        });
-      });
-    }
-  })(req, res, next);
-});
+
 
 app.listen(port, () => {
   console.log(`server has started on port ${port}`);
