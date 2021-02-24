@@ -1,14 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+
+// CSS
 import "./App.css";
-//import Login from "./components/Login";
-import Fehlertabelle from "./components/Fehlertabelle";
-import Login from "./components/Login";
+
+// Router
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import PrivateRoute from "./components/PrivateRoute";
+
+// Components
 import Toolbar from "./components/Toolbar";
+import Login from "./components/Login";
+import Fehlertabelle from "./components/Fehlertabelle";
+
+// ToDo: noch raussnehmen sobald die fehlersuche implementiert ist
 import { fehlers } from "./components/fehlers";
 
 function App() {
-  console.log(fehlers);
   return (
     <Router>
       <Switch>
@@ -20,23 +27,11 @@ function App() {
         </Route>
         <>
           <Toolbar />
-          <Route exact path="/">
-            <p>HAUPTSEITE</p>
-          </Route>
-          <Route exact path="/fehler">
-            <Fehlertabelle fehlerarray={fehlers} />
-          </Route>
-          <Route exact path="/fehler/erstellen">
-            <p>FEHLER ERSTELLEN ANSICHT</p>
-          </Route>
-          <Route exact path="/analyse">
-            <p>ANALYSE TERMINAL</p>
-          </Route>
-          <Route
-            exact
-            path="/fehler/ansicht/:id"
-            children={<p>EINZELNE FEHLERANSICHT</p>}
-          />
+          <PrivateRoute exact path="/" component={dummy} />
+          <PrivateRoute exact path="/fehler" component={dummy} />
+          <PrivateRoute exact path="/fehler/erstellen" component={dummy} />
+          <PrivateRoute exact path="/analyse" component={dummy} />
+          <PrivateRoute exact path="/fehler/ansicht/:id" component={dummy} />
         </>
         <Route exact path="*">
           <p>ERROR</p>
@@ -44,6 +39,10 @@ function App() {
       </Switch>
     </Router>
   );
-}
+};
+
+const dummy = () => {
+  return <Fehlertabelle fehlerarray={fehlers} />;
+};
 
 export default App;
