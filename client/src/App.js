@@ -1,9 +1,19 @@
 import React, { useState, useEffect } from "react";
+
+// CSS
 import "./App.css";
-import Login from "./components/Login";
+
+// Router
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Toolbar from "./components/Toolbar";
 import PrivateRoute from "./components/PrivateRoute";
+
+// Components
+import Toolbar from "./components/Toolbar";
+import Login from "./components/Login";
+import Fehlertabelle from "./components/Fehlertabelle";
+
+// ToDo: noch raussnehmen sobald die fehlersuche implementiert ist
+import { fehlers } from "./components/fehlers";
 
 function App() {
   return (
@@ -29,10 +39,10 @@ function App() {
       </Switch>
     </Router>
   );
-}
+};
 
 const dummy = () => {
-  return <p>DUMMY</p>;
+  return <Fehlertabelle fehlerarray={fehlers} />;
 };
 
 export default App;
