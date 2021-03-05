@@ -3,9 +3,9 @@ const app = express();
 const router = express.Router();
 const pool = require("../db");
 
+// GET Fehler
 router.get("/", async (req, res) => {
   try {
-    console.log(req.body);
     const { titel = "", loesung = "", auswirkung = "", status = "" } = req.body;
 
     const allFehler = await pool.query(
@@ -35,7 +35,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//create Fail
+//create Fehler
 router.post("/", async (req, res) => {
   try {
     const {
@@ -70,9 +70,7 @@ router.post("/", async (req, res) => {
   }
 });
 
-//get Fail ---
-
-//get Fail by ID
+//get Fehler by ID
 router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
@@ -98,7 +96,7 @@ router.get("/:id", async (req, res) => {
   }
 });
 
-//update Fail
+//update Fehler
 router.put("/:fehlerid", async (req, res) => {
   try {
     const { fehlerid } = req.params;
@@ -142,6 +140,7 @@ router.put("/:fehlerid", async (req, res) => {
   }
 });
 
+// Delete Fehler
 router.delete("/:id", async (req, res) => {
   try {
     const { id } = req.params;
