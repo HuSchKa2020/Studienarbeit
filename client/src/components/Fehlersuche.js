@@ -37,7 +37,7 @@ const Fehlersuche = () => {
 
   return (
     <div className="suchContainer">
-      <h1>Suche</h1>
+      <h1 id="ueberschrift">Suche</h1>
       <div className="field titel" id="titelContainer">
         <label>Titel</label>
         <input
@@ -82,7 +82,12 @@ const Fehlersuche = () => {
           onChange={(e) => setAuswirkung(e.target.value)}
         />
       </div>
-      <button id="sucheButton" type="submit" onClick={getFehler}>
+      <button
+        className="btn neutral"
+        id="sucheButton"
+        type="submit"
+        onClick={getFehler}
+      >
         <p className="text">Suche</p>
       </button>
       <div id="tabellenContainer">

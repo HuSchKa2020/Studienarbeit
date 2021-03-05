@@ -17,7 +17,7 @@ h1 {
   text-align: center;
 }
 
-.btn {
+#btnLogin {
   position: fixed;
   top: 80%;
   left: 50%;
