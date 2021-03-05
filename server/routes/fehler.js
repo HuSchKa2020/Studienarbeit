@@ -3,10 +3,15 @@ const app = express();
 const router = express.Router();
 const pool = require("../db");
 
-// GET Fehler, aber put methode da, aus dem browser keine daten bei get request gesendet werden können
-router.put("/", async (req, res) => {
+// GET Fehler
+router.get("/", async (req, res) => {
   try {
-    const { titel = "", loesung = "", auswirkung = "", status = "" } = req.body;
+    const {
+      titel = "",
+      loesung = "",
+      auswirkung = "",
+      status = "",
+    } = req.query;
 
     const allFehler = await pool.query(
       "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND lösung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = s.softwareid",
