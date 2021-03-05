@@ -11,6 +11,7 @@ import PrivateRoute from "./components/PrivateRoute";
 import Toolbar from "./components/Toolbar";
 import Login from "./components/Login";
 import Fehlertabelle from "./components/Fehlertabelle";
+import Fehler from "./components/EinzelnerFehler";
 
 // ToDo: noch raussnehmen sobald die fehlersuche implementiert ist
 import { fehlers } from "./components/fehlers";
@@ -31,7 +32,7 @@ function App() {
           <PrivateRoute exact path="/fehler" component={dummy} />
           <PrivateRoute exact path="/fehler/erstellen" component={dummy} />
           <PrivateRoute exact path="/analyse" component={dummy} />
-          <PrivateRoute exact path="/fehler/ansicht/:id" component={dummy} />
+          <PrivateRoute exact path="/fehler/ansicht/:id" component={Fehler} />
         </>
         <Route exact path="*">
           <p>ERROR</p>
@@ -39,7 +40,7 @@ function App() {
       </Switch>
     </Router>
   );
-};
+}
 
 const dummy = () => {
   return <Fehlertabelle fehlerarray={fehlers} />;
