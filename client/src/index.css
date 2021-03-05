@@ -53,3 +53,13 @@ code {
 .btn.negative {
   background: red;
 }
+
+.field {
+  padding: 10px;
+  display: grid;
+}
+
+.field label {
+  font-weight: bold;
+  padding: 5px 0px 5px 0px;
+}
