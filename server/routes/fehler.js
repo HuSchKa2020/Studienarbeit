@@ -9,7 +9,7 @@ router.get("/", async (req, res) => {
     const { titel = "", loesung = "", auswirkung = "", status = "" } = req.body;
 
     const allFehler = await pool.query(
-      "SELECT * FROM fehler WHERE titel LIKE $1 AND lösung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4",
+      "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND lösung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = s.softwareid",
       [
         "%" + titel + "%",
         "%" + loesung + "%",
