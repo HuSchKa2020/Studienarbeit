@@ -3,8 +3,8 @@ const app = express();
 const router = express.Router();
 const pool = require("../db");
 
-// GET Fehler
-router.get("/", async (req, res) => {
+// GET Fehler, aber put methode da, aus dem browser keine daten bei get request gesendet werden können
+router.put("/", async (req, res) => {
   try {
     const { titel = "", loesung = "", auswirkung = "", status = "" } = req.body;
 
