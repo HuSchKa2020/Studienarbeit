@@ -13,13 +13,21 @@ const Fehlersuche = () => {
   const [auswirkung, setAuswirkung] = useState("");
 
   const getFehler = async () => {
-    const response = await fetch(URL_GET_FEHLERSUCHE, {
-      method: "PUT",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({ titel, loesung, status, auswirkung }),
-    });
+    // URL bauen
+    var params = { titel, status, loesung, auswirkung };
+
+    var url =
+      URL_GET_FEHLERSUCHE +
+      "?titel=" +
+      params.titel +
+      "&status=" +
+      params.status +
+      "&loesung=" +
+      params.loesung +
+      "&auswirkung=" +
+      params.auswirkung;
+
+    const response = await fetch(url);
 
     const jsonData = await response.json();
 
