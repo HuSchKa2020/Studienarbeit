@@ -1,23 +1,24 @@
 import React from "react";
 
-const Fehlerzeile = ({ ID, Titel, Status, Software, Datum }) => {
+// ToDo Datum in Datebank zum fehler
+const Fehlerzeile = ({ fehlerid, titel, status, softwarename }) => {
   return (
     <article className="fehler">
       <div className="flex-container">
         <div className="flex-item">
-          <p id="id">{ID}</p>
+          <p id="id">{fehlerid}</p>
         </div>
         <div className="flex-item">
-          <h3>{Titel}</h3>
+          <h3>{titel}</h3>
         </div>
         <div className="flex-item">
-          <p>Status: {Status}</p>
+          <p>Status: {status}</p>
         </div>
         <div className="flex-item">
-          <p>Software: {Software}</p>
+          <p>Software: {softwarename}</p>
         </div>
         <div className="flex-item">
-          <p>Datum: {Datum}</p>
+          <p>Datum: XX.XX.XXXX</p>
         </div>
       </div>
     </article>

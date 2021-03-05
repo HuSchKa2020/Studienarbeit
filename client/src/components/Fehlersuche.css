@@ -1,0 +1,47 @@
+.suchContainer {
+  display: grid;
+  grid-template-columns: 250px, 250px;
+  grid-template-rows: 75px 100px 100px 50px auto;
+}
+
+.inputField#titel {
+  width: 500px;
+}
+
+#titelContainer {
+  grid-column-start: 1;
+  grid-row-start: 2;
+  background-color: blueviolet;
+}
+
+#loesungContainer {
+  grid-column-start: 2;
+  grid-row-start: 2;
+
+  background-color: red;
+}
+
+#auswirkungContainer {
+  grid-column-start: 1;
+  grid-row-start: 3;
+  background-color: chartreuse;
+}
+
+#statusContainer {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  background-color: aqua;
+}
+
+#sucheButton {
+  grid-column-start: 2;
+  grid-row-start: 4;
+  background-color: aqua;
+}
+
+#tabellenContainer {
+  grid-column-start: 1;
+  grid-row-start: 5;
+  grid-column-end: 2;
+  background-color: bisque;
+}
