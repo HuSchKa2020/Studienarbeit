@@ -1,0 +1,105 @@
+.grid-box {
+  width: max-content;
+  height: max-content;
+  margin-left: 350px;
+  margin-top: 20px;
+  border-radius: 20px;
+
+  background: #316fb7;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 100px 200px 100px 100px 100px;
+  grid-template-areas:
+    "id titel titel "
+    "beschreibung beschreibung beschreibung "
+    "auswirkung software status"
+    "loesung loesung loesung"
+    "datum - autor";
+}
+
+p {
+  text-align: center;
+}
+h2 {
+  text-align: center;
+  width: 450px;
+  font-size: 20px;
+}
+
+#beschreibung {
+  width: 700px;
+}
+
+#loesung {
+  width: 700px;
+}
+
+.box-ID {
+  background: white;
+  grid-area: id;
+  margin: 10px;
+  border-radius: 20px;
+  text-align: center;
+}
+
+.box-Titel {
+  background: white;
+  grid-area: titel;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.box-Beschreibung {
+  background: white;
+  grid-area: beschreibung;
+  margin: 10px;
+  border-radius: 20px;
+}
+
+.box-Software {
+  background: white;
+  grid-area: software;
+  margin: 10px;
+  border-radius: 20px;
+  vertical-align: center;
+}
+
+.box-Auswirkung {
+  background: white;
+  grid-area: auswirkung;
+  margin: 10px;
+  border-radius: 20px;
+  vertical-align: center;
+}
+
+.box-Status {
+  background: white;
+  grid-area: status;
+  margin: 10px;
+  border-radius: 20px;
+  vertical-align: center;
+}
+
+.box-Loesung {
+  background: white;
+  grid-area: loesung;
+  margin: 10px;
+  border-radius: 20px;
+  vertical-align: center;
+}
+
+.box-Autor {
+  background: white;
+  grid-area: autor;
+  margin: 10px;
+  border-radius: 20px;
+  vertical-align: center;
+}
+
+.box-Datum {
+  background: white;
+  grid-area: datum;
+  margin: 10px;
+  border-radius: 20px;
+  vertical-align: center;
+}
