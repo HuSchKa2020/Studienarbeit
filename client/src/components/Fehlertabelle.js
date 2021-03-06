@@ -9,7 +9,6 @@ const Fehlertabelle = (fehlerarray) => {
   return (
     <>
       {fehlerliste.map((fehler) => {
-        console.log(fehler);
         return (
           <div className="fehlerliste">
             <Fehlerzeile key={fehler.ID} {...fehler} />
