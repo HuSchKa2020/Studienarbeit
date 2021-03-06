@@ -11,7 +11,7 @@ port = 5000;
 //middleware
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: process.env.CORS_URL,
     credentials: true,
   })
 );
@@ -34,8 +34,6 @@ require("./passportConfig")(passport);
 // Import routes
 app.use("/fehler", require("./routes/fehler"));
 app.use("/user", require("./routes/user"));
-
-
 
 app.listen(port, () => {
   console.log(`server has started on port ${port}`);
