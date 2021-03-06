@@ -42,7 +42,7 @@ const Fehler = () => {
         <p>{fehler.fehlerid}</p>
       </div>
       <div className="box-Titel">
-        <h2>
+        <h2 id="einzelFehlerTitel">
           Titel: <br />
           {fehler.titel}
         </h2>
