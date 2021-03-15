@@ -19,50 +19,106 @@ select {
   margin: 10px 50px
 }
 
+
+
 #TitelContainer{
-  
   grid-column-start: 1;
   grid-row-start: 2;
+  margin: 50px 0px;
+}
+#TitelLabel{
+  grid-column-start: 1;
+  grid-row-start: 2;
+  margin: 30px 10px;
+  font-weight: 700;
 }
 
+
+
 #BeschreibungContainer{
-  
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  margin: 50px 20px;
+}
+#BeschreibungLabel{
   grid-column-start: 2;
   grid-row-start: 2;
+  margin: 30px 30px;
+  font-weight: 700;
 }
+
 
 #AuswirkungContainer{
   
   grid-column-start: 1;
   grid-row-start: 3;
+  margin: 50px 0px;
 }
+#AuswirkungLabel{
+  grid-column-start: 1;
+  grid-row-start: 3;
+  margin: 30px 10px;
+  font-weight: 700;
+}
+
 
 #LoesungContainer{
-  
   grid-column-start: 2;
   grid-row-start: 3;
+  margin: 50px 20px; 
 }
+#LösungLabel{
+  grid-column-start: 2;
+  grid-row-start: 3;
+  margin: 30px 30px;
+  font-weight: 700;
+}
+
 
 #StatusContainer{
-  
-  grid-column-start: 1;
-  grid-row-start: 5;
-}
-
-#SoftwareidContainer{
   grid-column-start: 1;
   grid-row-start: 4;
+  margin: 50px 0px;
+}
+#StatusLabel{
+  grid-column-start: 1;
+  grid-row-start: 4;
+  margin: 30px 10px; 
+  font-weight: 700;
+}
+
+
+#SoftwareidContainer{
+  grid-column-start: 2;
+  grid-row-start: 4;
+  margin: 50px 20px;
+}
+#SoftwareIDLabel{
+  grid-column-start: 2;
+  grid-row-start: 4;
+  margin: 30px 30px;
+  font-weight: 700;
 }
 
 #AnwenderidContainer{
-  grid-column-start: 2;
-  grid-row-start: 4;
+  grid-column-start: 1;
+  grid-row-start: 5;
+  margin: 0px 0px;
 }
+#AnwenderIDLabel{
+  grid-column-start: 1;
+  grid-row-start: 5;
+  margin: -20px 10px;
+  font-weight: 700;
+}
+
 
 #btnFehlerErstellen{
   width: 200px;
   height: 50px;
   grid-column-start: 2;
   grid-row-start: 5;
-  margin: 50px 50px ;
+  margin: 0px 50px ;
 }

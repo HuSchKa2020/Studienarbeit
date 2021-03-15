@@ -9,16 +9,13 @@ const Fehlererstellen = () => {
   const [lösung, setLösung] = useState("");
   const [auswirkung, setAuswirkung] = useState("");
   const [status, setStatus] = useState("");
-  const [softwareid, setSoftwareid] = useState();
+  const [softwareid, setSoftwareid] = useState("");
   const [anwenderid, setAnwenderid] = useState("");
 
   const handleSubmit = (e) => {
 
-    e.preventDefault();
+    //e.preventDefault();
 
-    console.log("Hello");
-
-    console.log(softwareid)
     axios({
       method: "POST",
       data: {
@@ -49,9 +46,12 @@ const Fehlererstellen = () => {
     <div className="ErstellContainer">
       <h1 id="ueberschrift">Fehler erstellen</h1>
 
+      
+      <label id="TitelLabel">Titel</label>
+
       <div className="field" id="TitelContainer">
-        <label>Titel</label>
         <input
+          style={{width: '550px'}}
           className="inputField"
           type="text"
           id="titel"
@@ -61,9 +61,11 @@ const Fehlererstellen = () => {
         />
       </div>
 
-      <div className="field" id="BeschreibungContainer">
-        <label>Beschreibung</label>
+      <label id="BeschreibungLabel">Beschreibung</label>
+
+      <div className="field" id="BeschreibungContainer" >
         <input
+          style={{width: '550px'}}
           className="inputField"
           type="text"
           id="beschreibung"
@@ -73,21 +75,11 @@ const Fehlererstellen = () => {
         />
       </div>
 
-      <div className="field" id="LoesungContainer">
-        <label>Lösung</label>
-        <input
-          className="inputField"
-          type="text"
-          id="lösung"
-          name="lösung"
-          value={lösung}
-          onChange={(e) => setLösung(e.target.value)}
-        />
-      </div>
+      <label id="AuswirkungLabel">Auswirkung</label>
 
       <div className="field" id="AuswirkungContainer">
-        <label>Auswirkung</label>
         <input
+          style={{width: '550px'}}
           className="inputField"
           type="text"
           id="auswirkung"
@@ -97,10 +89,26 @@ const Fehlererstellen = () => {
         />
       </div>
 
-      
-      <div className="field" id="StatusContainer">
-        <label>Status</label>
+
+      <label id="LösungLabel">Lösung</label>
+
+      <div className="field" id="LoesungContainer">
         <input
+          style={{width: '550px'}}
+          className="inputField"
+          type="text"
+          id="lösung"
+          name="lösung"
+          value={lösung}
+          onChange={(e) => setLösung(e.target.value)}
+        />
+      </div>
+
+      <label id="StatusLabel">Status</label>
+
+      <div className="field" id="StatusContainer">
+        <input
+          style={{width: '550px'}}
           className="inputField"
           type="text"
           id="status"
@@ -110,9 +118,13 @@ const Fehlererstellen = () => {
         />
       </div>
 
+      <label id="SoftwareIDLabel">SoftwareID</label>
+
+      
+
       <div className="field" id="SoftwareidContainer">
-        <label>SoftwareID</label>
         <input
+          style={{width: '550px'}}
           className="inputField"
           type="number"
           id="softwareid"
@@ -126,9 +138,11 @@ const Fehlererstellen = () => {
         />
       </div>
 
+      <label id="AnwenderIDLabel">AnwenderID</label>
+
       <div className="field" id="AnwenderidContainer">
-        <label>AnwenderID</label>
         <input
+          style={{width: '550px'}}
           className="inputField"
           type="number"
           id="anwenderid"
@@ -156,7 +170,7 @@ const Fehlererstellen = () => {
 
 export default Fehlererstellen;
 
-//ToDo Ticket Nr.
+//ToDo Ticket Nr. 34
 
 /*
        <div className="dropdown-content" id="StatusDropdown">
@@ -174,19 +188,7 @@ export default Fehlererstellen;
       
 
       
-        <div className="dropdown-content" id="SoftwareidDropdown">
-          <select style={{width: '300px'}}>
-            <option value="1">Sap</option>
-            <option value="2">Oracle</option>
-            <option value="3">Office365</option>
-            <option value="4">Exchange</option>
-            <input
-            type="number"
-            value={softwareid}
-            onChange={(e) => setSoftwareid(e.target.value)}
-            />
-            </select>
-          </div> 
+
           
       
 
