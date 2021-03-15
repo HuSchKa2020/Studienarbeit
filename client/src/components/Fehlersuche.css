@@ -10,8 +10,9 @@
   grid-column-start: 1;
   grid-row-start: 1;
   text-align: left;
-  margin: 10px 50px;
+  margin: 50px 50px;
 }
+
 #titelContainer {
   grid-column-start: 1;
   grid-row-start: 2;
