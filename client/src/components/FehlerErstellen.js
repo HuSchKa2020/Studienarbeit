@@ -13,7 +13,6 @@ const Fehlererstellen = () => {
   const [anwenderid, setAnwenderid] = useState("");
 
   const handleSubmit = (e) => {
-
     //e.preventDefault();
 
     axios({
@@ -32,10 +31,10 @@ const Fehlererstellen = () => {
     }).then((res) => {
       console.log(res);
       const data = res.data;
-      if(data.success === true) {
+      if (data.success === true) {
         //erstellen eines Fehlers erfolgreich
         console.log(data.message);
-      }else{
+      } else {
         //eintrag konnte nicht erstellt werden
         console.log(data.message);
       }
@@ -46,12 +45,11 @@ const Fehlererstellen = () => {
     <div className="ErstellContainer">
       <h1 id="ueberschrift">Fehler erstellen</h1>
 
-      
       <label id="TitelLabel">Titel</label>
 
       <div className="field" id="TitelContainer">
         <input
-          style={{width: '550px'}}
+          style={{ width: "550px" }}
           className="inputField"
           type="text"
           id="titel"
@@ -63,9 +61,9 @@ const Fehlererstellen = () => {
 
       <label id="BeschreibungLabel">Beschreibung</label>
 
-      <div className="field" id="BeschreibungContainer" >
+      <div className="field" id="BeschreibungContainer">
         <input
-          style={{width: '550px'}}
+          style={{ width: "550px" }}
           className="inputField"
           type="text"
           id="beschreibung"
@@ -79,7 +77,7 @@ const Fehlererstellen = () => {
 
       <div className="field" id="AuswirkungContainer">
         <input
-          style={{width: '550px'}}
+          style={{ width: "550px" }}
           className="inputField"
           type="text"
           id="auswirkung"
@@ -89,12 +87,11 @@ const Fehlererstellen = () => {
         />
       </div>
 
-
       <label id="LösungLabel">Lösung</label>
 
       <div className="field" id="LoesungContainer">
         <input
-          style={{width: '550px'}}
+          style={{ width: "550px" }}
           className="inputField"
           type="text"
           id="loesung"
@@ -108,7 +105,7 @@ const Fehlererstellen = () => {
 
       <div className="field" id="StatusContainer">
         <input
-          style={{width: '550px'}}
+          style={{ width: "550px" }}
           className="inputField"
           type="text"
           id="status"
@@ -120,11 +117,9 @@ const Fehlererstellen = () => {
 
       <label id="SoftwareIDLabel">SoftwareID</label>
 
-      
-
       <div className="field" id="SoftwareidContainer">
         <input
-          style={{width: '550px'}}
+          style={{ width: "550px" }}
           className="inputField"
           type="number"
           id="softwareid"
@@ -134,7 +129,6 @@ const Fehlererstellen = () => {
           step="1"
           value={softwareid}
           onChange={(e) => setSoftwareid(e.target.value)}
-  
         />
       </div>
 
@@ -142,7 +136,7 @@ const Fehlererstellen = () => {
 
       <div className="field" id="AnwenderidContainer">
         <input
-          style={{width: '550px'}}
+          style={{ width: "550px" }}
           className="inputField"
           type="number"
           id="anwenderid"
@@ -154,19 +148,18 @@ const Fehlererstellen = () => {
           onChange={(e) => setAnwenderid(e.target.value)}
         />
       </div>
-      
-      
+
       <button
         className="btn neutral"
         id="btnFehlerErstellen"
         type="submit"
         onClick={handleSubmit}
-        >
-          <p className="text">erstellen</p>
-        </button>
+      >
+        <p className="buttontext">Erstellen</p>
+      </button>
     </div>
   );
-}
+};
 
 export default Fehlererstellen;
 

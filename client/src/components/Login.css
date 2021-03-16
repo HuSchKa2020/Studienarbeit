@@ -18,6 +18,8 @@ h1 {
 }
 
 #btnLogin {
+  width: 200px;
+  height: 50px;
   position: fixed;
   top: 80%;
   left: 50%;

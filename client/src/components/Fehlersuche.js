@@ -96,7 +96,7 @@ const Fehlersuche = () => {
         type="submit"
         onClick={getFehler}
       >
-        <p className="text">Suche</p>
+        <p className="buttontext">Suche</p>
       </button>
       <div id="tabellenContainer">
         {fehler.map((f) => {
