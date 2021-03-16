@@ -6,7 +6,7 @@ import "./FehlerErstellen.css";
 const Fehlererstellen = () => {
   const [titel, setTitel] = useState("");
   const [beschreibung, setBeschreibung] = useState("");
-  const [lösung, setLösung] = useState("");
+  const [loesung, setLoesung] = useState("");
   const [auswirkung, setAuswirkung] = useState("");
   const [status, setStatus] = useState("");
   const [softwareid, setSoftwareid] = useState("");
@@ -21,7 +21,7 @@ const Fehlererstellen = () => {
       data: {
         titel: titel,
         beschreibung: beschreibung,
-        lösung: lösung,
+        loesung: loesung,
         auswirkung: auswirkung,
         status: status,
         softwareid: softwareid,
@@ -97,10 +97,10 @@ const Fehlererstellen = () => {
           style={{width: '550px'}}
           className="inputField"
           type="text"
-          id="lösung"
-          name="lösung"
-          value={lösung}
-          onChange={(e) => setLösung(e.target.value)}
+          id="loesung"
+          name="loesung"
+          value={loesung}
+          onChange={(e) => setLoesung(e.target.value)}
         />
       </div>
 

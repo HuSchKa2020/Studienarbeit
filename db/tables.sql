@@ -37,7 +37,7 @@ CREATE TABLE Fehler
     FehlerID		    SERIAL PRIMARY KEY,
     Titel               VARCHAR(255),
     Beschreibung        VARCHAR(255),
-    Lösung			    VARCHAR(255),
+    Loesung			    VARCHAR(255),
     Auswirkung          VARCHAR(255),
     Status              VARCHAR(255),
     SoftwareID          INTEGER,

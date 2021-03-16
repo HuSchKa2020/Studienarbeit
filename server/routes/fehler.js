@@ -14,7 +14,7 @@ router.get("/", async (req, res) => {
     } = req.query;
 
     const allFehler = await pool.query(
-      "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND lösung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = s.softwareid",
+      "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND loesung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = s.softwareid",
       [
         "%" + titel + "%",
         "%" + loesung + "%",
@@ -46,15 +46,15 @@ router.post("/", async (req, res) => {
     const {
       titel,
       beschreibung,
-      lösung,
+      loesung,
       auswirkung,
       status,
       softwareid,
       anwenderid,
     } = req.body;
     const newFehler = await pool.query(
-      "INSERT INTO fehler (titel, beschreibung, lösung, auswirkung, status, softwareid, anwenderid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [titel, beschreibung, lösung, auswirkung, status, softwareid, anwenderid]
+      "INSERT INTO fehler (titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+      [titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid]
     );
 
     if (newFehler.rowCount === 0) {
@@ -108,19 +108,19 @@ router.put("/:fehlerid", async (req, res) => {
     const {
       titel,
       beschreibung,
-      lösung,
+      loesung,
       auswirkung,
       status,
       softwareid,
       anwenderid,
     } = req.body;
     const updateFehler = await pool.query(
-      "UPDATE fehler SET titel = $2, beschreibung = $3, lösung = $4, auswirkung = $5, status = $6, softwareid = $7, anwenderid = $8 WHERE fehlerid = $1 RETURNING *",
+      "UPDATE fehler SET titel = $2, beschreibung = $3, loesung = $4, auswirkung = $5, status = $6, softwareid = $7, anwenderid = $8 WHERE fehlerid = $1 RETURNING *",
       [
         fehlerid,
         titel,
         beschreibung,
-        lösung,
+        loesung,
         auswirkung,
         status,
         softwareid,
