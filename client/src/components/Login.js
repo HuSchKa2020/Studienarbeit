@@ -66,7 +66,7 @@ const Login = () => {
           type="submit"
           onClick={handleSubmit}
         >
-          <p className="text">Login</p>
+          <p className="buttontext">Login</p>
         </button>
       </form>
     </>

@@ -70,7 +70,7 @@ const Fehler = () => {
         </p>
       </div>
       <div className="box-Loesung">
-        <p id="loesung">
+        <p id="loesungbox">
           <b> Lösung:</b> <br />
           {fehler.loesung}
         </p>

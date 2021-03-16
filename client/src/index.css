@@ -61,6 +61,12 @@ code {
   background-color: darkblue;
 }
 
+.buttontext {
+  margin: 0%;
+  padding: 0%;
+}
+
+
 .field {
   padding: 10px;
   display: grid;
