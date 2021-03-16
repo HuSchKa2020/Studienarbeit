@@ -1,9 +1,15 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 
 // ToDo Datum in Datebank zum fehler
 const Fehlerzeile = ({ fehlerid, titel, status, softwarename }) => {
+  const history = useHistory();
+
   return (
-    <article className="fehler">
+    <article
+      className="fehler"
+      onClick={() => history.push("/fehler/ansicht/" + fehlerid)}
+    >
       <div className="flex-container">
         <div className="flex-item">
           <p id="id">{fehlerid}</p>

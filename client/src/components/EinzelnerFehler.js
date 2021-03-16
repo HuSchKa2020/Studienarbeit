@@ -4,13 +4,11 @@ import { useHistory } from "react-router-dom";
 
 import "./Fehleransicht.css";
 
-var path = window.location.pathname; // /fehler/ansicht/2
-path = path.split("/"); // [3] = id
-var id = path[3];
-
-console.log(id);
-
 const Fehler = () => {
+  var path = window.location.pathname; // /fehler/ansicht/2
+  path = path.split("/"); // [3] = id
+  var id = path[3];
+
   let history = useHistory();
   const [fehler, setFehler] = useState({});
 
