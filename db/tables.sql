@@ -10,7 +10,8 @@ CREATE TABLE Anwender
     Email           VARCHAR(255),
     Telefon         VARCHAR(255),
     Password        VARCHAR(255),
-    AbteilungsID    INTEGER
+    AbteilungsID    INTEGER,
+    Registriert_Am    DATE
 );
 
 CREATE TABLE Abteilung
@@ -41,7 +42,8 @@ CREATE TABLE Fehler
     Auswirkung          VARCHAR(255),
     Status              VARCHAR(255),
     SoftwareID          INTEGER,
-    AnwenderID          INTEGER
+    AnwenderID          INTEGER,
+    Erstellt_Am         DATE
 );
 
 CREATE TABLE Software

@@ -76,41 +76,52 @@ select {
   font-weight: 700;
 }
 
+#DatumContainer{
+grid-column-start: 1;
+grid-row-start: 4;
+margin: 50px 0px;
+}
+#DatumLabel{
+  grid-column-start: 1;
+  grid-row-start: 4;
+  margin: 30px 10px;
+  font-weight: 700;
+}
 
 #StatusContainer{
-  grid-column-start: 1;
+  grid-column-start: 2;
   grid-row-start: 4;
-  margin: 50px 0px;
+  margin: 50px 20px;
 }
 #StatusLabel{
-  grid-column-start: 1;
+  grid-column-start: 2;
   grid-row-start: 4;
-  margin: 30px 10px; 
+  margin: 30px 30px; 
   font-weight: 700;
 }
 
 
 #SoftwareidContainer{
-  grid-column-start: 2;
-  grid-row-start: 4;
-  margin: 50px 20px;
-}
-#SoftwareIDLabel{
-  grid-column-start: 2;
-  grid-row-start: 4;
-  margin: 30px 30px;
-  font-weight: 700;
-}
-
-#AnwenderidContainer{
   grid-column-start: 1;
   grid-row-start: 5;
   margin: 0px 0px;
 }
-#AnwenderIDLabel{
+#SoftwareIDLabel{
   grid-column-start: 1;
   grid-row-start: 5;
   margin: -20px 10px;
+  font-weight: 700;
+}
+
+#AnwenderidContainer{
+  grid-column-start: 2;
+  grid-row-start: 5;
+  margin: 0px 20px;
+}
+#AnwenderIDLabel{
+  grid-column-start: 2;
+  grid-row-start: 5;
+  margin: -20px 30px;
   font-weight: 700;
 }
 
@@ -118,7 +129,7 @@ select {
 #btnFehlerErstellen{
   width: 200px;
   height: 50px;
-  grid-column-start: 2;
-  grid-row-start: 5;
-  margin: 0px 210px ;
+  grid-column-start: 1;
+  grid-row-start: 6;
+  margin: 50px 500px ;
 }

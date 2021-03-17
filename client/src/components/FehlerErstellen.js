@@ -101,6 +101,20 @@ const Fehlererstellen = () => {
         />
       </div>
 
+      <label id="DatumLabel">Erstellt am</label>
+
+      <div className="field" id="DatumContainer">
+        <input
+          style={{ width: "550px" }}
+          className="inputField"
+          type="date"
+          id="loesung"
+          name="loesung"
+          value={loesung}
+          onChange={(e) => setLoesung(e.target.value)}
+        />
+      </div>
+
       <label id="StatusLabel">Status</label>
 
       <div className="field" id="StatusContainer">
