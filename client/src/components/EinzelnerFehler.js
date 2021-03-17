@@ -54,7 +54,7 @@ const Fehler = () => {
       <div className="box-Software">
         <p>
           <b> Software:</b> <br />
-          {fehler.software}
+          {fehler.softwareid}
         </p>
       </div>
       <div className="box-Auswirkung">
