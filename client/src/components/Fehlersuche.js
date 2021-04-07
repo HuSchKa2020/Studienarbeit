@@ -98,7 +98,26 @@ const Fehlersuche = () => {
       >
         <p className="buttontext">Suche</p>
       </button>
+
       <div id="tabellenContainer">
+        <div className="flex-container-kopf">
+          <div className="flex-item-kopf">
+            <p id="kopfid">ID</p>
+          </div>
+          <div className="flex-item-kopf">
+            <p id="kopftitel">Titel</p>
+          </div>
+          <div className="flex-item-kopf">
+            <p className="kopf">Status</p>
+          </div>
+          <div className="flex-item-kopf">
+            <p className="kopf">Software</p>
+          </div>
+          <div className="flex-item-kopf">
+            <p className="kopf">Datum</p>
+          </div>
+        </div>
+
         {fehler.map((f) => {
           return (
             <div className="fehlerliste">
