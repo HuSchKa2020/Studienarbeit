@@ -4,8 +4,9 @@
   margin-left: 350px;
   margin-top: 20px;
   border-radius: 20px;
+  border-color: #316fb7;
+  border-style: solid;
 
-  background: #316fb7;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: 100px 200px 100px 100px 100px;
@@ -18,13 +19,17 @@
 }
 
 p {
+  margin-top: 8px;
   text-align: center;
 }
 
 #einzelFehlerTitel {
   text-align: center;
   width: 450px;
-  font-size: 20px;
+}
+
+#einzelFehlerID {
+  margin-top: 16px;
 }
 
 #beschreibung {
@@ -36,7 +41,9 @@ p {
 }
 
 .box-ID {
-  background: white;
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #316fb7;
   grid-area: id;
   margin: 10px;
   border-radius: 20px;
@@ -44,6 +51,9 @@ p {
 }
 
 .box-Titel {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #316fb7;
   background: white;
   grid-area: titel;
   margin: 10px;
@@ -51,6 +61,9 @@ p {
 }
 
 .box-Beschreibung {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #316fb7;
   background: white;
   grid-area: beschreibung;
   margin: 10px;
@@ -58,6 +71,9 @@ p {
 }
 
 .box-Software {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #316fb7;
   background: white;
   grid-area: software;
   margin: 10px;
@@ -66,6 +82,9 @@ p {
 }
 
 .box-Auswirkung {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #316fb7;
   background: white;
   grid-area: auswirkung;
   margin: 10px;
@@ -74,6 +93,9 @@ p {
 }
 
 .box-Status {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #316fb7;
   background: white;
   grid-area: status;
   margin: 10px;
@@ -82,6 +104,9 @@ p {
 }
 
 .box-Loesung {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #316fb7;
   background: white;
   grid-area: loesung;
   margin: 10px;
@@ -90,6 +115,9 @@ p {
 }
 
 .box-Autor {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #316fb7;
   background: white;
   grid-area: autor;
   margin: 10px;
@@ -98,6 +126,9 @@ p {
 }
 
 .box-Datum {
+  border-style: solid;
+  border-radius: 10px;
+  border-color: #316fb7;
   background: white;
   grid-area: datum;
   margin: 10px;

@@ -37,13 +37,13 @@ const Fehler = () => {
   return (
     <article className="grid-box">
       <div className="box-ID">
-        <p>{fehler.fehlerid}</p>
+        <p id="einzelFehlerID">{fehler.fehlerid}</p>
       </div>
       <div className="box-Titel">
-        <h2 id="einzelFehlerTitel">
-          Titel: <br />
+        <p id="einzelFehlerTitel">
+          <b> Titel:</b> <br />
           {fehler.titel}
-        </h2>
+        </p>
       </div>
       <div className="box-Beschreibung">
         <p id="beschreibung">
