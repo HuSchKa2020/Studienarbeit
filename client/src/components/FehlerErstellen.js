@@ -2,6 +2,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import { URL_POST_FEHLERERSTELLEN } from "../constants";
 import "./FehlerErstellen.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 const Fehlererstellen = () => {
   const [titel, setTitel] = useState("");
@@ -14,6 +18,13 @@ const Fehlererstellen = () => {
 
   const handleSubmit = (e) => {
     //e.preventDefault();
+
+    toast.success("Fehler erstellt.", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+      autoClose: 6000,
+      closeOnClick: false,
+      hideProgressBar: false,
+    });
 
     axios({
       method: "POST",
