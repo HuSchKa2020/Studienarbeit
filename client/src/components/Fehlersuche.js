@@ -118,6 +118,8 @@ const Fehlersuche = () => {
           </div>
         </div>
 
+        <hr id="linie" />
+
         {fehler.map((f) => {
           return (
             <div className="fehlerliste">
