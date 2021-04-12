@@ -11,11 +11,11 @@
 }
 
 p {
-  width: 200px;
+  width: 203px;
 }
 
 #id {
-  width: 80px;
+  width: 81px;
 }
 
 h2 {
@@ -25,7 +25,7 @@ h2 {
 h3 {
   padding: 2px;
   font-size: 15px;
-  width: 317px;
+  width: 321px;
 }
 
 .flex-container {
@@ -41,6 +41,7 @@ h3 {
   border-style: solid;
   border-color: #316fb7;
   border-radius: 10px;
+  border-width: 2px;
 }
 
 .flex-container-kopf {
