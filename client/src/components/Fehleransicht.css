@@ -1,137 +1,211 @@
 .grid-box {
-  width: max-content;
-  height: max-content;
-  margin-left: 350px;
-  margin-top: 20px;
+  width: 900px;
+  margin: 20px;
   border-radius: 20px;
   border-color: #316fb7;
   border-style: solid;
 
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  grid-template-rows: 100px 200px 100px 100px 100px;
-  grid-template-areas:
-    "id titel titel "
-    "beschreibung beschreibung beschreibung "
-    "auswirkung software status"
-    "loesung loesung loesung"
-    "datum - autor";
+  grid-template-columns: 300px 300px 300px;
+  grid-template-rows: 50px 50px 50px 150px 50px 50px 50px 50px 50px 50px;
 }
 
-p {
+.einFehlerUeber {
+  font-size: 20px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+.einzelFehlerInhalt {
   margin-top: 8px;
+  padding: 0px;
   text-align: center;
+  width: 288px;
+  font-size: 18px;
 }
 
 #einzelFehlerTitel {
+  margin-top: 8px;
+  padding: 0px;
   text-align: center;
-  width: 450px;
+  width: 587px;
+  font-size: 18px;
 }
 
-#einzelFehlerID {
-  margin-top: 16px;
+#einzelFehlerLoesung {
+  margin-top: 8px;
+  padding: 0px;
+  width: 885px;
+  text-align: center;
+  font-size: 18px;
 }
 
-#beschreibung {
-  width: 700px;
+#einzelFehlerBeschreibung {
+  margin-top: 10px;
+  padding: 0px;
+  width: 885px;
+  text-align: center;
+  font-size: 18px;
 }
 
-#loesungbox {
-  width: 700px;
+#Uid {
+  grid-row-start: 1;
+  grid-column-start: 1;
+  margin: 2px;
 }
 
 .box-ID {
+  grid-row-start: 2;
+  grid-column-start: 1;
   border-style: solid;
   border-radius: 10px;
   border-color: #316fb7;
-  grid-area: id;
-  margin: 10px;
+  margin: 2px;
   border-radius: 20px;
   text-align: center;
 }
 
+#Utitel {
+  grid-row-start: 1;
+  grid-column-start: 2;
+  margin: 2px;
+}
+
 .box-Titel {
+  grid-row-start: 2;
+  grid-column-start: 2;
+  grid-column-end: 4;
   border-style: solid;
   border-radius: 10px;
   border-color: #316fb7;
   background: white;
-  grid-area: titel;
-  margin: 10px;
+  margin: 2px;
   border-radius: 20px;
+}
+
+#Ubeschreibung {
+  grid-row-start: 3;
+  grid-column-start: 1;
+  margin: 2px;
 }
 
 .box-Beschreibung {
+  grid-row-start: 4;
+  grid-column-start: 1;
+  grid-column-end: 4;
   border-style: solid;
   border-radius: 10px;
   border-color: #316fb7;
   background: white;
-  grid-area: beschreibung;
-  margin: 10px;
+  margin: 2px;
   border-radius: 20px;
+}
+
+#Usoftware {
+  grid-row-start: 5;
+  grid-column-start: 2;
+  margin: 2px;
 }
 
 .box-Software {
+  grid-row-start: 6;
+  grid-column-start: 2;
   border-style: solid;
   border-radius: 10px;
   border-color: #316fb7;
   background: white;
-  grid-area: software;
-  margin: 10px;
+  margin: 2px;
   border-radius: 20px;
   vertical-align: center;
+}
+
+#Uauswirkung {
+  grid-row-start: 5;
+  grid-column-start: 1;
+  margin: 2px;
 }
 
 .box-Auswirkung {
+  grid-row-start: 6;
+  grid-column-start: 1;
   border-style: solid;
   border-radius: 10px;
   border-color: #316fb7;
   background: white;
-  grid-area: auswirkung;
-  margin: 10px;
+  margin: 2px;
   border-radius: 20px;
   vertical-align: center;
+}
+
+#Ustatus {
+  grid-row-start: 5;
+  grid-column-start: 3;
+  margin: 2px;
 }
 
 .box-Status {
+  grid-row-start: 6;
+  grid-column-start: 3;
   border-style: solid;
   border-radius: 10px;
   border-color: #316fb7;
   background: white;
-  grid-area: status;
-  margin: 10px;
+  margin: 2px;
   border-radius: 20px;
   vertical-align: center;
+}
+
+#Uloesung {
+  grid-row-start: 7;
+  grid-column-start: 1;
+  margin: 2px;
 }
 
 .box-Loesung {
+  grid-row-start: 8;
+  grid-column-start: 1;
+  grid-column-end: 4;
   border-style: solid;
   border-radius: 10px;
   border-color: #316fb7;
   background: white;
-  grid-area: loesung;
-  margin: 10px;
+  margin: 2px;
   border-radius: 20px;
   vertical-align: center;
+}
+
+#Uautor {
+  grid-row-start: 9;
+  grid-column-start: 1;
+  margin: 2px;
 }
 
 .box-Autor {
+  grid-row-start: 10;
+  grid-column-start: 1;
   border-style: solid;
   border-radius: 10px;
   border-color: #316fb7;
   background: white;
-  grid-area: autor;
-  margin: 10px;
+  margin: 2px;
   border-radius: 20px;
   vertical-align: center;
 }
 
+#Udatum {
+  grid-row-start: 9;
+  grid-column-start: 3;
+  margin: 2px;
+}
+
 .box-Datum {
+  grid-row-start: 10;
+  grid-column-start: 3;
   border-style: solid;
   border-radius: 10px;
   border-color: #316fb7;
   background: white;
-  grid-area: datum;
-  margin: 10px;
+  margin: 2px;
   border-radius: 20px;
   vertical-align: center;
 }
