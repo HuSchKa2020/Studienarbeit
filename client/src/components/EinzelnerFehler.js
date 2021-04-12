@@ -37,55 +37,52 @@ const Fehler = () => {
   return (
     <article className="grid-box">
       <div className="box-ID">
-        <p>{fehler.fehlerid}</p>
+        <p id="einzelFehlerID">ID: {fehler.fehlerid}</p>
       </div>
       <div className="box-Titel">
-        <h2 id="einzelFehlerTitel">
-          Titel: <br />
-          {fehler.titel}
-        </h2>
+        <p id="einzelFehlerTitel">{fehler.titel}</p>
+      </div>
+      <div id="Ubeschreibung">
+        <p className="einFehlerUeber">Beschreibung</p>
       </div>
       <div className="box-Beschreibung">
-        <p id="beschreibung">
-          <b> Beschreibung:</b> <br />
-          {fehler.beschreibung}
-        </p>
+        <p id="einzelFehlerBeschreibung">{fehler.beschreibung}</p>
+      </div>
+      <div id="Usoftware">
+        <p className="einFehlerUeber">Software</p>
       </div>
       <div className="box-Software">
-        <p>
-          <b> Software:</b> <br />
-          {fehler.softwareid}
-        </p>
+        <p className="einzelFehlerInhalt">{fehler.softwareid}</p>
+      </div>
+      <div id="Uauswirkung">
+        <p className="einFehlerUeber">Auswirkung</p>
       </div>
       <div className="box-Auswirkung">
-        <p>
-          <b> Auswirkung:</b> <br />
-          {fehler.auswirkung}
-        </p>
+        <p className="einzelFehlerInhalt">{fehler.auswirkung}</p>
+      </div>
+      <div id="Ustatus">
+        <p className="einFehlerUeber">Status</p>
       </div>
       <div className="box-Status">
-        <p>
-          <b> Status:</b> <br />
-          {fehler.status}
-        </p>
+        <p className="einzelFehlerInhalt">{fehler.status}</p>
+      </div>
+      <div id="Uloesung">
+        <p className="einFehlerUeber">Lösung</p>
       </div>
       <div className="box-Loesung">
-        <p id="loesungbox">
-          <b> Lösung:</b> <br />
-          {fehler.loesung}
-        </p>
+        <p id="einzelFehlerLoesung">{fehler.loesung}</p>
+      </div>
+      <div id="Uautor">
+        <p className="einFehlerUeber">Autor</p>
       </div>
       <div className="box-Autor">
-        <p>
-          <b> Autor:</b> <br />
-          {fehler.autor}
-        </p>
+        <p className="einzelFehlerInhalt">{fehler.autor}</p>
+      </div>
+      <div id="Udatum">
+        <p className="einFehlerUeber">Datum</p>
       </div>
       <div className="box-Datum">
-        <p>
-          <b> Datum:</b> <br />
-          {fehler.datum}
-        </p>
+        <p className="einzelFehlerInhalt">{fehler.datum}</p>
       </div>
     </article>
   );
