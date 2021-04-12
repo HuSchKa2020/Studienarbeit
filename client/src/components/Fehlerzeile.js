@@ -18,13 +18,13 @@ const Fehlerzeile = ({ fehlerid, titel, status, softwarename }) => {
           <h3>{titel}</h3>
         </div>
         <div className="flex-item">
-          <p>Status: {status}</p>
+          <p>{status}</p>
         </div>
         <div className="flex-item">
-          <p>Software: {softwarename}</p>
+          <p>{softwarename}</p>
         </div>
         <div className="flex-item">
-          <p>Datum: XX.XX.XXXX</p>
+          <p>XX.XX.XXXX</p>
         </div>
       </div>
     </article>
