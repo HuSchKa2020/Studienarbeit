@@ -2,6 +2,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import { URL_POST_FEHLERERSTELLEN } from "../constants";
 import "./FehlerErstellen.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure();
 
 const Fehlererstellen = () => {
   const [titel, setTitel] = useState("");
@@ -12,33 +16,46 @@ const Fehlererstellen = () => {
   const [softwareid, setSoftwareid] = useState("");
   const [anwenderid, setAnwenderid] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     //e.preventDefault();
 
-    axios({
-      method: "POST",
-      data: {
-        titel: titel,
-        beschreibung: beschreibung,
-        loesung: loesung,
-        auswirkung: auswirkung,
-        status: status,
-        softwareid: softwareid,
-        anwenderid: anwenderid,
-      },
-      withCredentials: true,
-      url: URL_POST_FEHLERERSTELLEN,
-    }).then((res) => {
-      console.log(res);
-      const data = res.data;
-      if (data.success === true) {
-        //erstellen eines Fehlers erfolgreich
-        console.log(data.message);
-      } else {
-        //eintrag konnte nicht erstellt werden
-        console.log(data.message);
-      }
+    const body = JSON.stringify({
+      titel: titel,
+      beschreibung: beschreibung,
+      loesung: loesung,
+      auswirkung: auswirkung,
+      status: status,
+      softwareid: softwareid,
+      anwenderid: anwenderid,
     });
+
+    const response = await fetch(URL_POST_FEHLERERSTELLEN, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: body,
+    });
+
+    const json = await response.json();
+
+    if (json.error === false) {
+      //erstellen eines Fehlers erfolgreich
+      toast.success(json.message, {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        autoClose: 6000,
+        closeOnClick: false,
+        hideProgressBar: false,
+      });
+    } else {
+      //eintrag konnte nicht erstellt werden
+      toast.error(json.message, {
+        position: toast.POSITION.BOTTOM_RIGHT,
+        autoClose: 6000,
+        closeOnClick: false,
+        hideProgressBar: false,
+      });
+    }
   };
 
   return (
