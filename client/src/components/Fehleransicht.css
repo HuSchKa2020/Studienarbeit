@@ -1,13 +1,9 @@
 .grid-box {
   width: 900px;
   margin: 20px;
-  border-radius: 20px;
-  border-color: #316fb7;
-  border-style: solid;
-
   display: grid;
   grid-template-columns: 300px 300px 300px;
-  grid-template-rows: 50px 50px 50px 150px 50px 50px 50px 50px 50px 50px;
+  grid-template-rows: 50px 20px 50px 120px 50px 50px 50px 50px 50px 50px;
 }
 
 .einFehlerUeber {
@@ -17,7 +13,7 @@
 }
 
 .einzelFehlerInhalt {
-  margin-top: 8px;
+  margin-top: 9px;
   padding: 0px;
   text-align: center;
   width: 288px;
@@ -25,15 +21,24 @@
 }
 
 #einzelFehlerTitel {
-  margin-top: 8px;
+  margin: 20px;
   padding: 0px;
-  text-align: center;
-  width: 587px;
-  font-size: 18px;
+  width: 800px;
+  font-size: 25px;
+  font-weight: bold;
+}
+
+#einzelFehlerID {
+  margin-top: 0px;
+  margin-left: 20px;
+  padding: 0px;
+  width: 100px;
+  font-size: 15px;
+  color: gray;
 }
 
 #einzelFehlerLoesung {
-  margin-top: 8px;
+  margin-top: 9px;
   padding: 0px;
   width: 885px;
   text-align: center;
@@ -41,44 +46,24 @@
 }
 
 #einzelFehlerBeschreibung {
-  margin-top: 10px;
+  margin: 20px;
   padding: 0px;
-  width: 885px;
+  width: 845px;
   text-align: center;
   font-size: 18px;
-}
-
-#Uid {
-  grid-row-start: 1;
-  grid-column-start: 1;
-  margin: 2px;
 }
 
 .box-ID {
   grid-row-start: 2;
   grid-column-start: 1;
-  border-style: solid;
-  border-radius: 10px;
-  border-color: #316fb7;
   margin: 2px;
   border-radius: 20px;
-  text-align: center;
-}
-
-#Utitel {
-  grid-row-start: 1;
-  grid-column-start: 2;
-  margin: 2px;
 }
 
 .box-Titel {
-  grid-row-start: 2;
-  grid-column-start: 2;
+  grid-row-start: 1;
+  grid-column-start: 1;
   grid-column-end: 4;
-  border-style: solid;
-  border-radius: 10px;
-  border-color: #316fb7;
-  background: white;
   margin: 2px;
   border-radius: 20px;
 }
@@ -94,11 +79,10 @@
   grid-column-start: 1;
   grid-column-end: 4;
   border-style: solid;
-  border-radius: 10px;
-  border-color: #316fb7;
-  background: white;
-  margin: 2px;
   border-radius: 20px;
+  border-color: rgb(181, 181, 181);
+  border-width: 1px;
+  margin: 2px;
 }
 
 #Usoftware {
@@ -112,8 +96,8 @@
   grid-column-start: 2;
   border-style: solid;
   border-radius: 10px;
-  border-color: #316fb7;
-  background: white;
+  border-color: rgb(181, 181, 181);
+  border-width: 1px;
   margin: 2px;
   border-radius: 20px;
   vertical-align: center;
@@ -130,8 +114,8 @@
   grid-column-start: 1;
   border-style: solid;
   border-radius: 10px;
-  border-color: #316fb7;
-  background: white;
+  border-color: rgb(181, 181, 181);
+  border-width: 1px;
   margin: 2px;
   border-radius: 20px;
   vertical-align: center;
@@ -148,8 +132,8 @@
   grid-column-start: 3;
   border-style: solid;
   border-radius: 10px;
-  border-color: #316fb7;
-  background: white;
+  border-color: rgb(181, 181, 181);
+  border-width: 1px;
   margin: 2px;
   border-radius: 20px;
   vertical-align: center;
@@ -167,8 +151,8 @@
   grid-column-end: 4;
   border-style: solid;
   border-radius: 10px;
-  border-color: #316fb7;
-  background: white;
+  border-color: rgb(181, 181, 181);
+  border-width: 1px;
   margin: 2px;
   border-radius: 20px;
   vertical-align: center;
@@ -185,8 +169,8 @@
   grid-column-start: 1;
   border-style: solid;
   border-radius: 10px;
-  border-color: #316fb7;
-  background: white;
+  border-color: rgb(181, 181, 181);
+  border-width: 1px;
   margin: 2px;
   border-radius: 20px;
   vertical-align: center;
@@ -203,8 +187,8 @@
   grid-column-start: 3;
   border-style: solid;
   border-radius: 10px;
-  border-color: #316fb7;
-  background: white;
+  border-color: rgb(181, 181, 181);
+  border-width: 1px;
   margin: 2px;
   border-radius: 20px;
   vertical-align: center;

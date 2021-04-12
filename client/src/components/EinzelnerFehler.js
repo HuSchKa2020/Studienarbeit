@@ -36,14 +36,8 @@ const Fehler = () => {
 
   return (
     <article className="grid-box">
-      <div id="Uid">
-        <p className="einFehlerUeber">ID</p>
-      </div>
       <div className="box-ID">
-        <p className="einzelFehlerInhalt">{fehler.fehlerid}</p>
-      </div>
-      <div id="Utitel">
-        <p className="einFehlerUeber">Titel</p>
+        <p id="einzelFehlerID">ID: {fehler.fehlerid}</p>
       </div>
       <div className="box-Titel">
         <p id="einzelFehlerTitel">{fehler.titel}</p>
