@@ -7,21 +7,22 @@ const pool = require("../db");
 router.get("/", async (req, res) => {
   try {
     const { nachname = "", email = "", telefon = "" } = req.query;
-    const allFehler = await pool.query(
+    const alleAnwender = await pool.query(
       "SELECT * FROM anwender a WHERE nachname LIKE $1 AND email LIKE $2 AND telefon LIKE $3;",
       ["%" + nachname + "%", "%" + email + "%", "%" + telefon + "%"]
     );
 
-    if (allFehler.rowCount === 0) {
+    if (alleAnwender.rowCount === 0) {
       res.json({
         error: true,
         message: `Keinen Anwender gefunden`,
+        anwender: alleAnwender.rows,
       });
     } else {
       res.json({
         error: false,
         message: `Anwender gefunden`,
-        fehler: allFehler.rows,
+        anwender: alleAnwender.rows,
       });
     }
   } catch (err) {
