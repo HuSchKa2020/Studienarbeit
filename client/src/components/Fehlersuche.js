@@ -75,8 +75,8 @@ const Fehlersuche = () => {
           type="text"
           id="status"
           name="status"
-          value={auswirkung}
-          onChange={(e) => setAuswirkung(e.target.value)}
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
         />
       </div>
       <div className="field" id="auswirkungContainer">
