@@ -2,7 +2,13 @@ import React from "react";
 import { useHistory } from "react-router-dom";
 
 // ToDo Datum in Datebank zum fehler
-const Fehlerzeile = ({ fehlerid, titel, status, softwarename }) => {
+const Fehlerzeile = ({
+  fehlerid,
+  titel,
+  status,
+  softwarename,
+  erstellt_am,
+}) => {
   const history = useHistory();
 
   return (
@@ -24,7 +30,7 @@ const Fehlerzeile = ({ fehlerid, titel, status, softwarename }) => {
           <p>{softwarename}</p>
         </div>
         <div className="flex-item">
-          <p>XX.XX.XXXX</p>
+          <p>{erstellt_am}</p>
         </div>
       </div>
     </article>
