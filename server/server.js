@@ -35,6 +35,7 @@ require("./passportConfig")(passport);
 app.use("/fehler", require("./routes/fehler"));
 app.use("/user", require("./routes/user"));
 app.use("/software", require("./routes/software"));
+app.use("/anwender", require("./routes/anwender"));
 
 app.listen(port, () => {
   console.log(`server has started on port ${port}`);
