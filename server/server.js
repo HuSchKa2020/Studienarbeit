@@ -34,6 +34,7 @@ require("./passportConfig")(passport);
 // Import routes
 app.use("/fehler", require("./routes/fehler"));
 app.use("/user", require("./routes/user"));
+app.use("/software", require("./routes/software"));
 app.use("/anwender", require("./routes/anwender"));
 
 app.listen(port, () => {
