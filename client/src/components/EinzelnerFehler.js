@@ -82,7 +82,7 @@ const Fehler = () => {
         <p className="einFehlerUeber">Datum</p>
       </div>
       <div className="box-Datum">
-        <p className="einzelFehlerInhalt">{fehler.datum}</p>
+        <p className="einzelFehlerInhalt">{fehler.erstellt_am}</p>
       </div>
     </article>
   );
