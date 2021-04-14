@@ -5,6 +5,7 @@ import "./FehlerErstellen.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
+
 toast.configure();
 
 const Fehlererstellen = () => {
@@ -66,7 +67,6 @@ const Fehlererstellen = () => {
 
       <div className="field" id="TitelContainer">
         <input
-          style={{ width: "550px" }}
           className="inputField"
           type="text"
           id="titel"
@@ -79,8 +79,8 @@ const Fehlererstellen = () => {
       <label id="BeschreibungLabel">Beschreibung</label>
 
       <div className="field" id="BeschreibungContainer">
-        <input
-          style={{ width: "550px" }}
+      <input 
+          
           className="inputField"
           type="text"
           id="beschreibung"
@@ -88,27 +88,25 @@ const Fehlererstellen = () => {
           value={beschreibung}
           onChange={(e) => setBeschreibung(e.target.value)}
         />
-      </div>
+
+        </div>
+      
 
       <label id="AuswirkungLabel">Auswirkung</label>
 
-      <div className="field" id="AuswirkungContainer">
-        <input
-          style={{ width: "550px" }}
-          className="inputField"
-          type="text"
-          id="auswirkung"
-          name="auswirkung"
-          value={auswirkung}
-          onChange={(e) => setAuswirkung(e.target.value)}
-        />
-      </div>
+      <select id="AuswirkungContainer" onChange={(e) => setAuswirkung(e.target.value)}>
+        <option value="niedrig">Niedrig</option>
+        <option value="mittel">Mittel</option>
+        <option value="Hoch">Hoch</option>
+
+      </select>
+
 
       <label id="LösungLabel">Lösung</label>
 
       <div className="field" id="LoesungContainer">
         <input
-          style={{ width: "550px" }}
+          
           className="inputField"
           type="text"
           id="loesung"
@@ -118,53 +116,34 @@ const Fehlererstellen = () => {
         />
       </div>
 
+
       <label id="StatusLabel">Status</label>
 
-      <div className="field" id="StatusContainer">
-        <input
-          style={{ width: "550px" }}
-          className="inputField"
-          type="text"
-          id="status"
-          name="status"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-        />
-      </div>
+      <select id="StatusContainer" onChange={(e) => setStatus(e.target.value)}>
+        <option value="behoben">behoben</option>
+        <option value="nicht behoben">nicht behoben</option>
+
+      </select>
+
 
       <label id="SoftwareIDLabel">SoftwareID</label>
 
-      <div className="field" id="SoftwareidContainer">
-        <input
-          style={{ width: "550px" }}
-          className="inputField"
-          type="number"
-          id="softwareid"
-          name="softwareid"
-          min="1"
-          max="10"
-          step="1"
-          value={softwareid}
-          onChange={(e) => setSoftwareid(e.target.value)}
-        />
-      </div>
+      <select id="SoftwareidContainer" onChange={(e) => setSoftwareid(e.target.value)}>
+          <option value="1">S/4 Hana</option>
+          <option value="2">Mysql</option>
+          <option value="3">Windows10</option>
 
-      <label id="AnwenderIDLabel">AnwenderID</label>
+      </select>
 
-      <div className="field" id="AnwenderidContainer">
-        <input
-          style={{ width: "550px" }}
-          className="inputField"
-          type="number"
-          id="anwenderid"
-          name="anwenderid"
-          min="1"
-          max="10"
-          step="1"
-          value={anwenderid}
-          onChange={(e) => setAnwenderid(e.target.value)}
-        />
-      </div>
+
+      <label id="AnwenderIDLabel">Anwender</label>
+
+      <select id="AnwenderidContainer" onChange={(e) => setAnwenderid(e.target.value)}>
+          <option value="1">Wilhelm Kaden</option>
+          <option value="2">Max Schumann</option>
+          <option value="3">Jan Hübner</option>
+      </select>
+
 
       <button
         className="btn neutral"
@@ -197,11 +176,60 @@ export default Fehlererstellen;
         </div>
       
 
+              <div className="field" id="AuswirkungContainer">
+        <input
+          style={{ width: "550px" }}
+          className="inputField"
+          type="text"
+          id="auswirkung"
+          name="auswirkung"
+          value={auswirkung}
+          onChange={(e) => setAuswirkung(e.target.value)}
+        />
+      </div>
       
 
-          
-      
+                <div className="field" id="StatusContainer">
+        <input
+          style={{ width: "550px" }}
+          className="inputField"
+          type="text"
+          id="status"
+          name="status"
+          value={status}
+          onChange={(e) => setStatus(e.target.value)}
+        />
+      </div>
 
+            <div className="field" id="AnwenderidContainer">
+        <input
+          style={{ width: "550px" }}
+          className="inputField"
+          type="number"
+          id="anwenderid"
+          name="anwenderid"
+          min="1"
+          max="10"
+          step="1"
+          value={anwenderid}
+          onChange={(e) => setAnwenderid(e.target.value)}
+        />
+      </div>
+      
+      <div className="field" id="SoftwareidContainer">
+        <input
+          style={{ width: "550px" }}
+          className="inputField"
+          type="number"
+          id="softwareid"
+          name="softwareid"
+          min="1"
+          max="10"
+          step="1"
+          value={softwareid}
+          onChange={(e) => setSoftwareid(e.target.value)}
+        />
+      </div>  
      
         <div className="dropdown-content" id="AnwenderidDropdown">
           <select style={{width: '300px'}}>
@@ -215,4 +243,17 @@ export default Fehlererstellen;
             </select>
           
         </div>
+
+        <input 
+          multiline
+          numberOfLines={4}
+          className="inputField"
+          type="text"
+          id="beschreibung"
+          name="beschreibung"
+          value={beschreibung}
+          onChange={(e) => setBeschreibung(e.target.value)}
+        />
+
+
 */
