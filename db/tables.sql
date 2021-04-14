@@ -2,6 +2,8 @@ create Database IFULTool;
 
 USE IFULTool; -- Interaktives Fehler- und Loesungs- Tool
 
+set timezone to 'Europe/Berlin';
+
 CREATE TABLE Anwender
 (
     AnwenderID      SERIAL PRIMARY KEY,
@@ -10,7 +12,8 @@ CREATE TABLE Anwender
     Email           VARCHAR(255),
     Telefon         VARCHAR(255),
     Password        VARCHAR(255),
-    AbteilungsID    INTEGER
+    AbteilungsID    INTEGER,
+    registriert_am timestamp not null default current_timestamp;
 );
 
 CREATE TABLE Abteilung
@@ -41,7 +44,8 @@ CREATE TABLE Fehler
     Auswirkung          VARCHAR(255),
     Status              VARCHAR(255),
     SoftwareID          INTEGER,
-    AnwenderID          INTEGER
+    AnwenderID          INTEGER,
+    erstellt_am         timestamp not null default current_timestamp;
 );
 
 CREATE TABLE Software
