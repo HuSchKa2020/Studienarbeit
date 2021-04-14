@@ -3,14 +3,26 @@
   padding: 10px 20px;
   background-color: #316fb7;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 
 .toolbar-item {
   color: white;
-  margin: 8px 20px;
+  font-size: 25px;
+  position: absolute;
+  bottom: 20px;
+  font-weight: bold;
+  left: 85px;
+  display: flex;
+  border-style: solid;
+  border-color: white;
+  border-radius: 18px;
+  border-width: 3px;
+  padding: 18px;
+  width: max-content;
 }
 
-.toolbar-menu {
-  margin-right: 820px;
+.toolbar-item:hover {
+  background-color: lightskyblue;
+  border-radius: 18px;
 }

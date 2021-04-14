@@ -14,8 +14,7 @@ import { IconContext } from "react-icons";
 import "./Menu.css";
 
 const Toolbar = () => {
-  const [sidebar, SetSidebar] = useState(false);
-
+  const [sidebar, SetSidebar] = useState(true);
   const showSidebar = () => SetSidebar(!sidebar);
 
   const history = useHistory();
@@ -51,6 +50,7 @@ const Toolbar = () => {
                   <AiIcons.AiOutlineClose />
                 </Link>
               </li>
+
               {MenuData.map((item, index) => {
                 return (
                   <li key={index} className={item.cName}>
@@ -61,35 +61,13 @@ const Toolbar = () => {
                   </li>
                 );
               })}
+              <p className="toolbar-item" onClick={logout}>
+                Logout
+              </p>
             </ul>
           </nav>
         </IconContext.Provider>
       </div>
-
-      <div className="Navigation">
-        <FontAwesomeIcon
-          icon={faSearch}
-          size="2x"
-          className="toolbar-item"
-          onClick={() => goTo("/fehler")}
-        />
-        <FontAwesomeIcon
-          icon={faPlus}
-          size="2x"
-          className="toolbar-item"
-          onClick={() => goTo("/fehler/erstellen")}
-        />
-      </div>
-      <FontAwesomeIcon
-        icon={faUser}
-        size="2x"
-        className="toolbar-item"
-        onClick={() => console.log("Hello World")}
-      />
-
-      <h2 className="toolbar-item" onClick={logout}>
-        LOGOUT
-      </h2>
     </div>
   );
 };
