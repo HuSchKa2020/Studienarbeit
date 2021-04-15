@@ -1,5 +1,5 @@
-.ErstellContainer{
-  margin: 10px 20px;
+.ErstellContainer {
+  margin: 20px 330px;
   width: 1130px;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -7,118 +7,107 @@
 }
 select {
   /* ... */
-  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
 }
 
-#Ueberschrift{
-  
+#Ueberschrift {
   grid-column-start: 1;
   grid-row-start: 1;
   text-align: left;
-  margin: 10px 50px
+  margin: 10px 50px;
 }
 
-
-
-#TitelContainer{
+#TitelContainer {
   grid-column-start: 1;
   grid-row-start: 2;
   margin: 50px 0px;
 }
-#TitelLabel{
+#TitelLabel {
   grid-column-start: 1;
   grid-row-start: 2;
   margin: 30px 10px;
   font-weight: 700;
 }
 
-
-
-#BeschreibungContainer{
+#BeschreibungContainer {
   grid-column-start: 2;
   grid-column-end: 2;
   grid-row-start: 2;
   grid-row-end: 2;
   margin: 50px 20px;
 }
-#BeschreibungLabel{
+#BeschreibungLabel {
   grid-column-start: 2;
   grid-row-start: 2;
   margin: 30px 30px;
   font-weight: 700;
 }
 
-
-#AuswirkungContainer{
-  
+#AuswirkungContainer {
   grid-column-start: 1;
   grid-row-start: 3;
   margin: 50px 0px;
 }
-#AuswirkungLabel{
+#AuswirkungLabel {
   grid-column-start: 1;
   grid-row-start: 3;
   margin: 30px 10px;
   font-weight: 700;
 }
 
-
-#LoesungContainer{
+#LoesungContainer {
   grid-column-start: 2;
   grid-row-start: 3;
-  margin: 50px 20px; 
+  margin: 50px 20px;
 }
-#LösungLabel{
+#LösungLabel {
   grid-column-start: 2;
   grid-row-start: 3;
   margin: 30px 30px;
   font-weight: 700;
 }
 
-
-#StatusContainer{
+#StatusContainer {
   grid-column-start: 1;
   grid-row-start: 4;
   margin: 50px 0px;
 }
-#StatusLabel{
+#StatusLabel {
   grid-column-start: 1;
   grid-row-start: 4;
-  margin: 30px 10px; 
+  margin: 30px 10px;
   font-weight: 700;
 }
 
-
-#SoftwareidContainer{
+#SoftwareidContainer {
   grid-column-start: 2;
   grid-row-start: 4;
   margin: 50px 20px;
 }
-#SoftwareIDLabel{
+#SoftwareIDLabel {
   grid-column-start: 2;
   grid-row-start: 4;
   margin: 30px 30px;
   font-weight: 700;
 }
 
-#AnwenderidContainer{
+#AnwenderidContainer {
   grid-column-start: 1;
   grid-row-start: 5;
   margin: 0px 0px;
 }
-#AnwenderIDLabel{
+#AnwenderIDLabel {
   grid-column-start: 1;
   grid-row-start: 5;
   margin: -20px 10px;
   font-weight: 700;
 }
 
-
-#btnFehlerErstellen{
+#btnFehlerErstellen {
   width: 200px;
   height: 50px;
   grid-column-start: 2;
   grid-row-start: 5;
-  margin: 0px 210px ;
+  margin: 0px 210px;
 }
