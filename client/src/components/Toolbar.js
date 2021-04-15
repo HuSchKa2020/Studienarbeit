@@ -1,7 +1,5 @@
 import React, { useState } from "react";
 import styles from "./Toolbar.css";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faUser, faSearch, faPlus } from "@fortawesome/free-solid-svg-icons";
 import { URL_GET_LOGOUT } from "../constants";
 import Axios from "axios";
 import { useHistory } from "react-router-dom";
@@ -15,7 +13,7 @@ import "./Menu.css";
 
 const Toolbar = () => {
   const [sidebar, SetSidebar] = useState(true);
-  const showSidebar = () => SetSidebar(!sidebar);
+  const showSidebar = () => SetSidebar(sidebar);
 
   const history = useHistory();
 
@@ -47,7 +45,7 @@ const Toolbar = () => {
             <ul className="nav-menu-items" onClick={showSidebar}>
               <li className="navbar-toggle">
                 <Link to="#" className="menu-bars">
-                  <AiIcons.AiOutlineClose />
+                  <FaIcons.FaBars />
                 </Link>
               </li>
 
