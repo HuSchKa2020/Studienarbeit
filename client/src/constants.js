@@ -9,3 +9,5 @@ export const URL_GET_LOGOUT = ROOT_URL + "/user/logout";
 // fehler
 export const URL_GET_FEHLERSUCHE = ROOT_URL + "/fehler";
 export const URL_POST_FEHLERERSTELLEN = ROOT_URL + "/fehler";
+
+

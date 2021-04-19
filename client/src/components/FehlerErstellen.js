@@ -1,9 +1,11 @@
 import axios from "axios";
-import React, { useState } from "react";
-import { URL_POST_FEHLERERSTELLEN } from "../constants";
+import React, { useState, useEffect, Component } from "react";
+import {  URL_POST_FEHLERERSTELLEN } from "../constants";
 import "./FehlerErstellen.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+
+
 
 
 toast.configure();
@@ -14,8 +16,61 @@ const Fehlererstellen = () => {
   const [loesung, setLoesung] = useState("");
   const [auswirkung, setAuswirkung] = useState("");
   const [status, setStatus] = useState("");
-  const [softwareid, setSoftwareid] = useState("");
-  const [anwenderid, setAnwenderid] = useState("");
+  const [softwareID, setSoftwareID] = useState("");
+  const [anwenderID, setAnwenderID] = useState("");
+
+  const [software, setSoftware] = useState([]);
+  const [anwender, setAnwender] = useState([]); 
+  
+//Get-Abfrage für Software-Dropdown
+  React.useEffect(() =>{
+
+  const getSoftware = async () =>{
+    
+
+    var url = 'http://localhost:5000/software';
+
+    const response = await fetch(url);
+
+    const jsonData = await response.json();
+ 
+    if(jsonData.error === true) {
+      console.log("keine software gefunden");
+      setSoftware([]);
+    } else {
+      setSoftware(jsonData.software);
+    }
+    console.log(setSoftware);
+    
+  }
+  getSoftware();
+}, []);
+
+
+//Get-Abfrage für Anwender-Dropdown
+React.useEffect(() =>{
+
+  const getAnwender = async () =>{
+    
+
+    var url = 'http://localhost:5000/anwender';
+
+    const response = await fetch(url);
+
+    const jsonData = await response.json();
+ 
+    if(jsonData.error === true) {
+      console.log("keine software gefunden");
+      setAnwender([]);
+    } else {
+      setAnwender(jsonData.anwender);
+    }
+    console.log(setAnwender);
+    
+  }
+  getAnwender();
+}, []);
+
 
   const handleSubmit = async (e) => {
     //e.preventDefault();
@@ -26,8 +81,8 @@ const Fehlererstellen = () => {
       loesung: loesung,
       auswirkung: auswirkung,
       status: status,
-      softwareid: softwareid,
-      anwenderid: anwenderid,
+      softwareid: softwareID,
+      anwenderid: anwenderID,
     });
 
     const response = await fetch(URL_POST_FEHLERERSTELLEN, {
@@ -58,6 +113,13 @@ const Fehlererstellen = () => {
       });
     }
   };
+
+  const refreshPage = () => {
+    window.location.reload();
+  }
+
+  
+
 
   return (
     <div className="ErstellContainer">
@@ -95,6 +157,7 @@ const Fehlererstellen = () => {
       <label id="AuswirkungLabel">Auswirkung</label>
 
       <select id="AuswirkungContainer" onChange={(e) => setAuswirkung(e.target.value)}>
+      <option value=""></option>
         <option value="niedrig">Niedrig</option>
         <option value="mittel">Mittel</option>
         <option value="Hoch">Hoch</option>
@@ -120,28 +183,37 @@ const Fehlererstellen = () => {
       <label id="StatusLabel">Status</label>
 
       <select id="StatusContainer" onChange={(e) => setStatus(e.target.value)}>
+        <option value=""></option>
         <option value="behoben">behoben</option>
         <option value="nicht behoben">nicht behoben</option>
 
       </select>
 
 
-      <label id="SoftwareIDLabel">SoftwareID</label>
+      <label id="SoftwareIDLabel">Software</label>
 
-      <select id="SoftwareidContainer" onChange={(e) => setSoftwareid(e.target.value)}>
-          <option value="1">S/4 Hana</option>
-          <option value="2">Mysql</option>
-          <option value="3">Windows10</option>
+      <select id="SoftwareidContainer" onChange={(e) => setSoftwareID(e.target.value)}>
+      <option value=""></option>
+      {software.map((softwares) =>(
+            
+            <option value={softwares.softwareid}>{softwares.softwarename}</option>
+          ))}
 
+        
       </select>
+
+     
+
 
 
       <label id="AnwenderIDLabel">Anwender</label>
 
-      <select id="AnwenderidContainer" onChange={(e) => setAnwenderid(e.target.value)}>
-          <option value="1">Wilhelm Kaden</option>
-          <option value="2">Max Schumann</option>
-          <option value="3">Jan Hübner</option>
+      <select id="AnwenderidContainer" onChange={(e) => setAnwenderID(e.target.value)}>
+      <option value=""></option>
+      {anwender.map((anwenders) =>(
+            
+            <option value={anwenders.anwenderid}>{anwenders.vorname} {anwenders.nachname}</option>
+          ))}
       </select>
 
 
@@ -157,103 +229,6 @@ const Fehlererstellen = () => {
   );
 };
 
+
 export default Fehlererstellen;
 
-//ToDo Ticket Nr. 34
-
-/*
-       <div className="dropdown-content" id="StatusDropdown">
-          <select id="Statusdropdown-list"  style={{width: '300px'}}
-          >
-            <option value="behoben">behoben</option>
-            <option value="nicht behoben">nicht behoben</option>
-            <input
-            type="text"
-            value={status}
-            onChange={(e) => setStatus(e.target.value)}
-            />
-            </select>
-        </div>
-      
-
-              <div className="field" id="AuswirkungContainer">
-        <input
-          style={{ width: "550px" }}
-          className="inputField"
-          type="text"
-          id="auswirkung"
-          name="auswirkung"
-          value={auswirkung}
-          onChange={(e) => setAuswirkung(e.target.value)}
-        />
-      </div>
-      
-
-                <div className="field" id="StatusContainer">
-        <input
-          style={{ width: "550px" }}
-          className="inputField"
-          type="text"
-          id="status"
-          name="status"
-          value={status}
-          onChange={(e) => setStatus(e.target.value)}
-        />
-      </div>
-
-            <div className="field" id="AnwenderidContainer">
-        <input
-          style={{ width: "550px" }}
-          className="inputField"
-          type="number"
-          id="anwenderid"
-          name="anwenderid"
-          min="1"
-          max="10"
-          step="1"
-          value={anwenderid}
-          onChange={(e) => setAnwenderid(e.target.value)}
-        />
-      </div>
-      
-      <div className="field" id="SoftwareidContainer">
-        <input
-          style={{ width: "550px" }}
-          className="inputField"
-          type="number"
-          id="softwareid"
-          name="softwareid"
-          min="1"
-          max="10"
-          step="1"
-          value={softwareid}
-          onChange={(e) => setSoftwareid(e.target.value)}
-        />
-      </div>  
-     
-        <div className="dropdown-content" id="AnwenderidDropdown">
-          <select style={{width: '300px'}}>
-            <option value="1">1</option>
-            <option value="2">2</option>
-            <input
-            type="number"
-            value={anwenderid}
-            onChange={(e) => setAnwenderid(e.target.value)}
-          />
-            </select>
-          
-        </div>
-
-        <input 
-          multiline
-          numberOfLines={4}
-          className="inputField"
-          type="text"
-          id="beschreibung"
-          name="beschreibung"
-          value={beschreibung}
-          onChange={(e) => setBeschreibung(e.target.value)}
-        />
-
-
-*/
