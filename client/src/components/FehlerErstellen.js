@@ -1,6 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect, Component } from "react";
-import {  URL_POST_FEHLERERSTELLEN } from "../constants";
+import {  URL_POST_FEHLERERSTELLEN, URL_GET_SOFTWARE, URL_GET_ANWENDER } from "../constants";
 import "./FehlerErstellen.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -28,7 +28,8 @@ const Fehlererstellen = () => {
   const getSoftware = async () =>{
     
 
-    var url = 'http://localhost:5000/software';
+    var url = URL_GET_SOFTWARE;
+    
 
     const response = await fetch(url);
 
@@ -36,11 +37,10 @@ const Fehlererstellen = () => {
  
     if(jsonData.error === true) {
       console.log("keine software gefunden");
-      setSoftware([]);
     } else {
       setSoftware(jsonData.software);
     }
-    console.log(setSoftware);
+    
     
   }
   getSoftware();
@@ -53,7 +53,8 @@ React.useEffect(() =>{
   const getAnwender = async () =>{
     
 
-    var url = 'http://localhost:5000/anwender';
+    var url = URL_GET_ANWENDER;
+    
 
     const response = await fetch(url);
 
@@ -61,11 +62,10 @@ React.useEffect(() =>{
  
     if(jsonData.error === true) {
       console.log("keine software gefunden");
-      setAnwender([]);
     } else {
       setAnwender(jsonData.anwender);
     }
-    console.log(setAnwender);
+    
     
   }
   getAnwender();
@@ -114,9 +114,7 @@ React.useEffect(() =>{
     }
   };
 
-  const refreshPage = () => {
-    window.location.reload();
-  }
+
 
   
 
@@ -185,7 +183,7 @@ React.useEffect(() =>{
       <select id="StatusContainer" onChange={(e) => setStatus(e.target.value)}>
         <option value=""></option>
         <option value="behoben">behoben</option>
-        <option value="nicht behoben">nicht behoben</option>
+        <option value="offen">offen</option>
 
       </select>
 
@@ -210,9 +208,9 @@ React.useEffect(() =>{
 
       <select id="AnwenderidContainer" onChange={(e) => setAnwenderID(e.target.value)}>
       <option value=""></option>
-      {anwender.map((anwenders) =>(
+      {anwender.map((anwender) =>(
             
-            <option value={anwenders.anwenderid}>{anwenders.vorname} {anwenders.nachname}</option>
+            <option value={anwender.anwenderid}>{anwender.vorname} {anwender.nachname}</option>
           ))}
       </select>
 
