@@ -58,14 +58,13 @@ code {
 }
 
 .btn.neutral:hover {
-  background-color: darkblue;
+  background-color: lightskyblue;
 }
 
 .buttontext {
   margin: 0%;
   padding: 0%;
 }
-
 
 .field {
   padding: 10px;

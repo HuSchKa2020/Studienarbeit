@@ -1,5 +1,5 @@
-.ErstellContainer{
-  margin: 10px 20px;
+.ErstellContainer {
+  margin: 20px 330px;
   width: 1130px;
   display: grid;
   grid-template-columns: 50% 50%;
@@ -7,16 +7,18 @@
 }
 select {
   /* ... */
-  box-shadow: 2px 2px 5px 1px rgba(0,0,0,0.3);
+  box-shadow: 2px 2px 5px 1px rgba(0, 0, 0, 0.3);
   border-radius: 3px;
 }
+
 
 #Ueberschrift{
   grid-column-start: 1;
   grid-row-start: 1;
   text-align: left;
-  margin: 10px 50px
+  margin: 10px 50px;
 }
+
 
 
 #TitelContainer{
@@ -26,7 +28,7 @@ select {
   grid-row-start: 2;
   margin: 50px 0px;
 }
-#TitelLabel{
+#TitelLabel {
   grid-column-start: 1;
   grid-row-start: 2;
   margin: 30px 10px;
@@ -34,19 +36,23 @@ select {
 }
 
 
+
 #BeschreibungContainer{
   width: 1400px;
-  grid-column-start: 1;
-  grid-column-end: 3;
-  grid-row-start: 3;
-  margin: 50px 0px;
+  grid-column-start: 2;
+  grid-column-end: 2;
+  grid-row-start: 2;
+  grid-row-end: 2;
+  margin: 50px 20px;
 }
-#BeschreibungLabel{
-  grid-column-start: 1;
-  grid-row-start: 3;
-  margin: 30px 10px;
+#BeschreibungLabel {
+  grid-column-start: 2;
+  grid-row-start: 2;
+  margin: 30px 30px;
   font-weight: 700;
 }
+
+
 
 
 #AuswirkungContainer{
@@ -92,14 +98,50 @@ select {
   font-weight: 700;
 }
 
-#AnwenderidContainer{
-  width: 300px;
-  height: 40px;
-  grid-column-start: 4;
+
+#LoesungContainer {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  margin: 50px 20px;
+}
+#LösungLabel {
+  grid-column-start: 2;
+  grid-row-start: 3;
+  margin: 30px 30px;
+  font-weight: 700;
+}
+
+#StatusContainer {
+  grid-column-start: 1;
+  grid-row-start: 4;
+  margin: 50px 0px;
+}
+#StatusLabel {
+  grid-column-start: 1;
+  grid-row-start: 4;
+  margin: 30px 10px;
+  font-weight: 700;
+}
+
+#SoftwareidContainer {
+  grid-column-start: 2;
+  grid-row-start: 4;
+  margin: 50px 20px;
+}
+#SoftwareIDLabel {
+  grid-column-start: 2;
+  grid-row-start: 4;
+  margin: 30px 30px;
+  font-weight: 700;
+}
+
+#AnwenderidContainer {
+  grid-column-start: 1;
   grid-row-start: 5;
   margin: 60px -40px;
   font-size: 20px;
 }
+
 #AnwenderIDLabel{
   grid-column-start: 4;
   grid-row-start: 5;
@@ -123,6 +165,7 @@ select {
 
 
 
+
 #btnFehlerErstellen{
   width: 200px;
   height: 50px;
@@ -130,3 +173,4 @@ select {
   grid-row-start: 7;
   margin: 50px 240px ;
 }
+

@@ -9,7 +9,7 @@ const saltRounds = 12;
 
 router.post("/register", async (req, res) => {
   try {
-    const { email, password, vorname, nachname, telefon } = req.body;
+    const { email, password, vorname, nachname, telefon, abteilungsid } = req.body;
     const user = await pool.query(
       "SELECT email FROM anwender WHERE email = $1",
       [email]
@@ -22,8 +22,8 @@ router.post("/register", async (req, res) => {
         async (err, hash) => {
           if (err) throw err;
           const newUser = await pool.query(
-            "INSERT INTO anwender (vorname, nachname, email, telefon, password) VALUES ($1, $2, $3, $4, $5) RETURNING *;",
-            [vorname, nachname, email, telefon, hash]
+            "INSERT INTO anwender (vorname, nachname, email, telefon, password, abteilungsid) VALUES ($1, $2, $3, $4, $5, $6) RETURNING *;",
+            [vorname, nachname, email, telefon, hash, abteilungsid]
           );
 
           res.json({
