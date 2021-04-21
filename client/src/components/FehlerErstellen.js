@@ -112,6 +112,7 @@ React.useEffect(() =>{
         hideProgressBar: false,
       });
     }
+    
   };
 
 
