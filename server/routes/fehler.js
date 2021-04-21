@@ -40,7 +40,7 @@ router.get("/", async (req, res) => {
   }
 });
 
-//create Fehler titel === ("") || beschreibung === null || loesung === null || auswirkung === null || status === null || softwareid === null || anwenderid === null
+//create Fehler
 router.post("/", async (req, res) => {
   try {
     const {
