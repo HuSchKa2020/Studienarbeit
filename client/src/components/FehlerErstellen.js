@@ -121,14 +121,15 @@ const Fehlererstellen = () => {
       <label id="BeschreibungLabel">Beschreibung</label>
 
       <div className="field" id="BeschreibungContainer">
-        <input
+      <textarea
+          style={{width:1000 ,height:50}}
           className="inputField"
           type="text"
           id="beschreibung"
           name="beschreibung"
           value={beschreibung}
           onChange={(e) => setBeschreibung(e.target.value)}
-        />
+        ></textarea>
       </div>
 
       <label id="AuswirkungLabel">Auswirkung</label>
@@ -203,3 +204,5 @@ const Fehlererstellen = () => {
 };
 
 export default Fehlererstellen;
+
+
