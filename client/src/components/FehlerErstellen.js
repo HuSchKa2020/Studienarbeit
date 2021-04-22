@@ -1,12 +1,13 @@
 import axios from "axios";
 import React, { useState, useEffect, Component } from "react";
-import {  URL_POST_FEHLERERSTELLEN, URL_GET_SOFTWARE, URL_GET_ANWENDER } from "../constants";
+import {
+  URL_POST_FEHLERERSTELLEN,
+  URL_GET_SOFTWARE,
+  URL_GET_ANWENDER,
+} from "../constants";
 import "./FehlerErstellen.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
-
-
 
 toast.configure();
 
@@ -20,57 +21,43 @@ const Fehlererstellen = () => {
   const [anwenderID, setAnwenderID] = useState("");
 
   const [software, setSoftware] = useState([]);
-  const [anwender, setAnwender] = useState([]); 
-  
-//Get-Abfrage für Software-Dropdown
-  React.useEffect(() =>{
+  const [anwender, setAnwender] = useState([]);
 
-  const getSoftware = async () =>{
-    
+  //Get-Abfrage für Software-Dropdown
+  React.useEffect(() => {
+    const getSoftware = async () => {
+      var url = URL_GET_SOFTWARE;
 
-    var url = URL_GET_SOFTWARE;
-    
+      const response = await fetch(url);
 
-    const response = await fetch(url);
+      const jsonData = await response.json();
 
-    const jsonData = await response.json();
- 
-    if(jsonData.error === true) {
-      console.log("keine software gefunden");
-    } else {
-      setSoftware(jsonData.software);
-    }
-    
-    
-  }
-  getSoftware();
-}, []);
+      if (jsonData.error === true) {
+        console.log("keine software gefunden");
+      } else {
+        setSoftware(jsonData.software);
+      }
+    };
+    getSoftware();
+  }, []);
 
+  //Get-Abfrage für Anwender-Dropdown
+  React.useEffect(() => {
+    const getAnwender = async () => {
+      var url = URL_GET_ANWENDER;
 
-//Get-Abfrage für Anwender-Dropdown
-React.useEffect(() =>{
+      const response = await fetch(url);
 
-  const getAnwender = async () =>{
-    
+      const jsonData = await response.json();
 
-    var url = URL_GET_ANWENDER;
-    
-
-    const response = await fetch(url);
-
-    const jsonData = await response.json();
- 
-    if(jsonData.error === true) {
-      console.log("keine software gefunden");
-    } else {
-      setAnwender(jsonData.anwender);
-    }
-    
-    
-  }
-  getAnwender();
-}, []);
-
+      if (jsonData.error === true) {
+        console.log("keine software gefunden");
+      } else {
+        setAnwender(jsonData.anwender);
+      }
+    };
+    getAnwender();
+  }, []);
 
   const handleSubmit = async (e) => {
     //e.preventDefault();
@@ -112,17 +99,11 @@ React.useEffect(() =>{
         hideProgressBar: false,
       });
     }
-    
   };
-
-
-
-  
-
 
   return (
     <div className="ErstellContainer">
-      <h1 id="ueberschrift">Fehler erstellen</h1>
+      <h1 id="ueberschriftErstellen">Fehler erstellen</h1>
 
       <label id="TitelLabel">Titel</label>
 
@@ -140,8 +121,7 @@ React.useEffect(() =>{
       <label id="BeschreibungLabel">Beschreibung</label>
 
       <div className="field" id="BeschreibungContainer">
-      <input 
-          
+        <input
           className="inputField"
           type="text"
           id="beschreibung"
@@ -149,26 +129,24 @@ React.useEffect(() =>{
           value={beschreibung}
           onChange={(e) => setBeschreibung(e.target.value)}
         />
-
-        </div>
-      
+      </div>
 
       <label id="AuswirkungLabel">Auswirkung</label>
 
-      <select id="AuswirkungContainer" onChange={(e) => setAuswirkung(e.target.value)}>
-      <option value=""></option>
+      <select
+        id="AuswirkungContainer"
+        onChange={(e) => setAuswirkung(e.target.value)}
+      >
+        <option value=""></option>
         <option value="niedrig">Niedrig</option>
         <option value="mittel">Mittel</option>
         <option value="Hoch">Hoch</option>
-
       </select>
-
 
       <label id="LösungLabel">Lösung</label>
 
       <div className="field" id="LoesungContainer">
         <input
-          
           className="inputField"
           type="text"
           id="loesung"
@@ -178,43 +156,39 @@ React.useEffect(() =>{
         />
       </div>
 
-
       <label id="StatusLabel">Status</label>
 
       <select id="StatusContainer" onChange={(e) => setStatus(e.target.value)}>
         <option value=""></option>
         <option value="behoben">behoben</option>
         <option value="offen">offen</option>
-
       </select>
-
 
       <label id="SoftwareIDLabel">Software</label>
 
-      <select id="SoftwareidContainer" onChange={(e) => setSoftwareID(e.target.value)}>
-      <option value=""></option>
-      {software.map((softwares) =>(
-            
-            <option value={softwares.softwareid}>{softwares.softwarename}</option>
-          ))}
-
-        
+      <select
+        id="SoftwareidContainer"
+        onChange={(e) => setSoftwareID(e.target.value)}
+      >
+        <option value=""></option>
+        {software.map((softwares) => (
+          <option value={softwares.softwareid}>{softwares.softwarename}</option>
+        ))}
       </select>
-
-     
-
-
 
       <label id="AnwenderIDLabel">Anwender</label>
 
-      <select id="AnwenderidContainer" onChange={(e) => setAnwenderID(e.target.value)}>
-      <option value=""></option>
-      {anwender.map((anwender) =>(
-            
-            <option value={anwender.anwenderid}>{anwender.vorname} {anwender.nachname}</option>
-          ))}
+      <select
+        id="AnwenderidContainer"
+        onChange={(e) => setAnwenderID(e.target.value)}
+      >
+        <option value=""></option>
+        {anwender.map((anwender) => (
+          <option value={anwender.anwenderid}>
+            {anwender.vorname} {anwender.nachname}
+          </option>
+        ))}
       </select>
-
 
       <button
         className="btn neutral"
@@ -228,6 +202,4 @@ React.useEffect(() =>{
   );
 };
 
-
 export default Fehlererstellen;
-

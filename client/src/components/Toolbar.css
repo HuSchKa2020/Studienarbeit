@@ -8,11 +8,11 @@
 
 .toolbar-item {
   color: white;
-  font-size: 25px;
+  font-size: 22px;
   position: absolute;
   bottom: 20px;
   font-weight: bold;
-  left: 85px;
+  left: 75px;
   display: flex;
   border-style: solid;
   border-color: white;

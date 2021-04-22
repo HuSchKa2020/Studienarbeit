@@ -1,6 +1,6 @@
 .grid-box {
   width: 900px;
-  margin: 30px 340px;
+  margin: 20px 310px;
   display: grid;
   grid-template-columns: 300px 300px 300px;
   grid-template-rows: 50px 20px 50px 120px 50px 50px 50px 50px 50px 50px;
