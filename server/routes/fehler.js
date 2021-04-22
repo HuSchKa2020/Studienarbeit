@@ -11,17 +11,33 @@ router.get("/", async (req, res) => {
       loesung = "",
       auswirkung = "",
       status = "",
+      softwareid = "",
     } = req.query;
 
-    const allFehler = await pool.query(
-      "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND loesung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = s.softwareid",
-      [
-        "%" + titel + "%",
-        "%" + loesung + "%",
-        "%" + auswirkung + "%",
-        "%" + status + "%",
-      ]
-    );
+    var allFehler;
+
+    if (softwareid === "") {
+      allFehler = await pool.query(
+        "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND loesung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = s.softwareid",
+        [
+          "%" + titel + "%",
+          "%" + loesung + "%",
+          "%" + auswirkung + "%",
+          "%" + status + "%",
+        ]
+      );
+    } else {
+      allFehler = await pool.query(
+        "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND loesung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = s.softwareid AND s.softwareid = $5",
+        [
+          "%" + titel + "%",
+          "%" + loesung + "%",
+          "%" + auswirkung + "%",
+          "%" + status + "%",
+          softwareid,
+        ]
+      );
+    }
 
     if (allFehler.rowCount === 0) {
       res.json({
@@ -52,31 +68,47 @@ router.post("/", async (req, res) => {
       softwareid,
       anwenderid,
     } = req.body;
-    if(titel === ("") || beschreibung === ("") || loesung === ("") || auswirkung === ("") || status === ("") || softwareid === ("") || anwenderid === ("")){
+    if (
+      titel === "" ||
+      beschreibung === "" ||
+      loesung === "" ||
+      auswirkung === "" ||
+      status === "" ||
+      softwareid === "" ||
+      anwenderid === ""
+    ) {
       res.json({
         error: true,
-        message: `Der Fehler konnte nicht erstellt werden`
-      })
+        message: `Der Fehler konnte nicht erstellt werden`,
+      });
     } else {
-    const newFehler = await pool.query(
-      "INSERT INTO fehler (titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid]
-    );
+      const newFehler = await pool.query(
+        "INSERT INTO fehler (titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+        [
+          titel,
+          beschreibung,
+          loesung,
+          auswirkung,
+          status,
+          softwareid,
+          anwenderid,
+        ]
+      );
 
-    if (newFehler.rowCount === 0) {
-      res.json({
-        error: true,
-        message: `Der Eintrag konnte nicht erstellt werden`,
-        fehler: newFehler.rows[0],
-      });
-    } else {
-      //Eintrag konnte nicht erstellt werden
-      res.json({
-        error: false,
-        message: `Der Eintrag wurde erfolgreich erstellt`,
-      });
+      if (newFehler.rowCount === 0) {
+        res.json({
+          error: true,
+          message: `Der Eintrag konnte nicht erstellt werden`,
+          fehler: newFehler.rows[0],
+        });
+      } else {
+        //Eintrag konnte nicht erstellt werden
+        res.json({
+          error: false,
+          message: `Der Eintrag wurde erfolgreich erstellt`,
+        });
+      }
     }
-  }
   } catch (err) {
     console.error(err.message);
   }
