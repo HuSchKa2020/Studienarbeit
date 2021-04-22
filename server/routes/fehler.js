@@ -52,6 +52,12 @@ router.post("/", async (req, res) => {
       softwareid,
       anwenderid,
     } = req.body;
+    if(titel === ("") || beschreibung === ("") || loesung === ("") || auswirkung === ("") || status === ("") || softwareid === ("") || anwenderid === ("")){
+      res.json({
+        error: true,
+        message: `Der Fehler konnte nicht erstellt werden`
+      })
+    } else {
     const newFehler = await pool.query(
       "INSERT INTO fehler (titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
       [titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid]
@@ -70,6 +76,7 @@ router.post("/", async (req, res) => {
         message: `Der Eintrag wurde erfolgreich erstellt`,
       });
     }
+  }
   } catch (err) {
     console.error(err.message);
   }
