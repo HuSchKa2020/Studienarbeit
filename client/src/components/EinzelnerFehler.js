@@ -10,7 +10,7 @@ const Fehler = () => {
   var id = path[3];
 
   let history = useHistory();
-  const [fehler, setFehler] = useState({});
+  const [fehler, setFehler] = useState({ erstellt_am: "XXXX-XX-XX" });
 
   const getFehler = async () => {
     try {
@@ -82,7 +82,9 @@ const Fehler = () => {
         <p className="einFehlerUeber">Datum</p>
       </div>
       <div className="box-Datum">
-        <p className="einzelFehlerInhalt">{fehler.erstellt_am}</p>
+        <p className="einzelFehlerInhalt">
+          {fehler.erstellt_am.substring(0, 10)}
+        </p>
       </div>
     </article>
   );
