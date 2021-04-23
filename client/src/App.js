@@ -14,6 +14,7 @@ import Fehlertabelle from "./components/Fehlertabelle";
 import Fehlersuche from "./components/Fehlersuche";
 import Fehler from "./components/EinzelnerFehler";
 import FehlerErstellen from "./components/FehlerErstellen";
+import Home from "./components/Home";
 
 function App() {
   return (
@@ -27,7 +28,7 @@ function App() {
         </Route>
         <>
           <Toolbar />
-          <PrivateRoute exact path="/" component={dummy} />
+          <PrivateRoute exact path="/" component={Home} />
           <PrivateRoute exact path="/fehler" component={Fehlersuche} />
           <PrivateRoute
             exact
