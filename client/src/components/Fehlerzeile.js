@@ -30,7 +30,7 @@ const Fehlerzeile = ({
           <p>{softwarename}</p>
         </div>
         <div className="flex-item">
-          <p>{erstellt_am}</p>
+          <p>{erstellt_am.substring(0, 10)}</p>
         </div>
       </div>
     </article>
