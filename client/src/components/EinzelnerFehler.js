@@ -1,30 +1,29 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
+import { URL_GET_ID_FEHLERSUCHE } from "../constants";
 
 import "./Fehleransicht.css";
 
 const Fehler = () => {
-  var path = window.location.pathname; // /fehler/ansicht/2
-  path = path.split("/"); // [3] = id
+  var path = window.location.pathname;
+  path = path.split("/");
   var id = path[3];
 
   let history = useHistory();
   const [fehler, setFehler] = useState({});
 
   const getFehler = async () => {
+    var URL = URL_GET_ID_FEHLERSUCHE + id;
     try {
-      const response = await fetch(`http://localhost:5000/fehler/${id}`);
+      const response = await fetch(URL);
       const jsonData = await response.json();
-
-      console.log(jsonData.fehler);
 
       if (jsonData.error) {
         history.push("/");
       } else {
         setFehler(jsonData.fehler);
       }
-      console.log(fehler);
     } catch (err) {
       console.log(err.message);
     }
@@ -52,7 +51,7 @@ const Fehler = () => {
         <p className="einFehlerUeber">Software</p>
       </div>
       <div className="box-Software">
-        <p className="einzelFehlerInhalt">{fehler.softwareid}</p>
+        <p className="einzelFehlerInhalt">{fehler.softwarename}</p>
       </div>
       <div id="Uauswirkung">
         <p className="einFehlerUeber">Auswirkung</p>
@@ -76,7 +75,9 @@ const Fehler = () => {
         <p className="einFehlerUeber">Autor</p>
       </div>
       <div className="box-Autor">
-        <p className="einzelFehlerInhalt">{fehler.autor}</p>
+        <p className="einzelFehlerInhalt">
+          {fehler.vorname + " " + fehler.nachname}
+        </p>
       </div>
       <div id="Udatum">
         <p className="einFehlerUeber">Datum</p>
