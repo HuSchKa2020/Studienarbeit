@@ -19,6 +19,7 @@ const Fehlererstellen = () => {
   const [status, setStatus] = useState("");
   const [softwareID, setSoftwareID] = useState("");
   const [anwenderID, setAnwenderID] = useState("");
+  
 
   const [software, setSoftware] = useState([]);
   const [anwender, setAnwender] = useState([]);
@@ -60,7 +61,9 @@ const Fehlererstellen = () => {
   }, []);
 
   const handleSubmit = async (e) => {
-    //e.preventDefault();
+    e.preventDefault();
+
+
 
     const body = JSON.stringify({
       titel: titel,
@@ -90,6 +93,15 @@ const Fehlererstellen = () => {
         closeOnClick: false,
         hideProgressBar: false,
       });
+
+      setTitel("");
+      setBeschreibung("");
+      setLoesung("");
+      setAuswirkung("");
+      setStatus("");
+      setSoftwareID("");
+      setAnwenderID("");
+      
     } else {
       //eintrag konnte nicht erstellt werden
       toast.error(json.message, {
@@ -137,7 +149,7 @@ const Fehlererstellen = () => {
       <select
         id="AuswirkungContainer"
         onChange={(e) => setAuswirkung(e.target.value)}
-      >
+        value={auswirkung}>
         <option value=""></option>
         <option value="niedrig">Niedrig</option>
         <option value="mittel">Mittel</option>
@@ -159,7 +171,11 @@ const Fehlererstellen = () => {
 
       <label id="StatusLabel">Status</label>
 
-      <select id="StatusContainer" onChange={(e) => setStatus(e.target.value)}>
+      <select 
+        id="StatusContainer" 
+        value={status} 
+        onChange={(e) => setStatus(e.target.value)}>
+
         <option value=""></option>
         <option value="behoben">behoben</option>
         <option value="offen">offen</option>
@@ -170,7 +186,8 @@ const Fehlererstellen = () => {
       <select
         id="SoftwareidContainer"
         onChange={(e) => setSoftwareID(e.target.value)}
-      >
+        value={softwareID}>
+
         <option value=""></option>
         {software.map((softwares) => (
           <option value={softwares.softwareid}>{softwares.softwarename}</option>
@@ -182,7 +199,8 @@ const Fehlererstellen = () => {
       <select
         id="AnwenderidContainer"
         onChange={(e) => setAnwenderID(e.target.value)}
-      >
+        value={anwenderID}>
+
         <option value=""></option>
         {anwender.map((anwender) => (
           <option value={anwender.anwenderid}>
