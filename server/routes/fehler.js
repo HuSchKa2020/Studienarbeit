@@ -63,7 +63,7 @@ router.post("/", async (req, res) => {
     ) {
       res.json({
         error: true,
-        message: `Der Fehler konnte nicht erstellt werden`,
+        message: `Ungültige Eingabe. Der Fehler konnte nicht erstellt werden`,
       });
     } else {
       const newFehler = await pool.query(
