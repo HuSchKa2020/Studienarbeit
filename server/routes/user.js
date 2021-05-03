@@ -9,7 +9,14 @@ const saltRounds = 12;
 
 router.post("/register", async (req, res) => {
   try {
-    const { email, password, vorname, nachname, telefon, abteilungsid } = req.body;
+    const {
+      email,
+      password,
+      vorname,
+      nachname,
+      telefon,
+      abteilungsid,
+    } = req.body;
     const user = await pool.query(
       "SELECT email FROM anwender WHERE email = $1",
       [email]
@@ -98,6 +105,35 @@ router.get("/", (req, res) => {
       loggedIn: false,
       message: "Kein Nutzer angemeldet!",
     });
+  }
+});
+
+router.get("/berechtigungen", async (req, res) => {
+  try {
+    console.log(req.user);
+    const berechtigungen = await pool.query(
+      `SELECT b.berechtigungsid, beschreibung
+      FROM anwenderrolle ar, rollenberechtigung rb, berechtigung b
+      WHERE ar.anwenderid = $1 AND ar.rollenid = rb.rollenid AND rb.berechtigungsid = b.berechtigungsid`,
+      [req.user.anwenderid]
+    );
+
+    // const berechtigungen = await pool.query(
+    //   `SELECT *
+    //   FROM anwenderrolle ar
+    //   WHERE ar.anwenderid = $1`,
+    //   [req.user.anwenderid]
+    // );
+
+    console.log(berechtigungen.rows);
+
+    res.send({
+      error: false,
+      berechtigungen: [...berechtigungen.rows],
+    });
+  } catch (err) {
+    console.log(err.message);
+    res.sendStatus(500);
   }
 });
 

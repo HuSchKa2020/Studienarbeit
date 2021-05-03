@@ -20,10 +20,11 @@ VALUES
     ('Gastnutzer')
 ;
 
-INSERT INTO berechtigung (beschreibung)
+INSERT INTO berechtigung (berechtigungsID, beschreibung)
 VALUES
-    ('Lesen von Fehlern'),
-    ('Erstellen von Fehlern')
+    (1, 'lesen'),
+    (2, 'schreiben'),
+    (3, 'loeschen')
 ;
 
 INSERT INTO software (hersteller,softwarename)
