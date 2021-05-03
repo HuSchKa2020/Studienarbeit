@@ -52,31 +52,47 @@ router.post("/", async (req, res) => {
       softwareid,
       anwenderid,
     } = req.body;
-    if(titel === ("") || beschreibung === ("") || loesung === ("") || auswirkung === ("") || status === ("") || softwareid === ("") || anwenderid === ("")){
+    if (
+      titel === "" ||
+      beschreibung === "" ||
+      loesung === "" ||
+      auswirkung === "" ||
+      status === "" ||
+      softwareid === "" ||
+      anwenderid === ""
+    ) {
       res.json({
         error: true,
-        message: `Der Fehler konnte nicht erstellt werden`
-      })
+        message: `Ungültige Eingabe. Der Fehler konnte nicht erstellt werden`,
+      });
     } else {
-    const newFehler = await pool.query(
-      "INSERT INTO fehler (titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
-      [titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid]
-    );
+      const newFehler = await pool.query(
+        "INSERT INTO fehler (titel, beschreibung, loesung, auswirkung, status, softwareid, anwenderid) VALUES($1, $2, $3, $4, $5, $6, $7) RETURNING *",
+        [
+          titel,
+          beschreibung,
+          loesung,
+          auswirkung,
+          status,
+          softwareid,
+          anwenderid,
+        ]
+      );
 
-    if (newFehler.rowCount === 0) {
-      res.json({
-        error: true,
-        message: `Der Eintrag konnte nicht erstellt werden`,
-        fehler: newFehler.rows[0],
-      });
-    } else {
-      //Eintrag konnte nicht erstellt werden
-      res.json({
-        error: false,
-        message: `Der Eintrag wurde erfolgreich erstellt`,
-      });
+      if (newFehler.rowCount === 0) {
+        res.json({
+          error: true,
+          message: `Der Eintrag konnte nicht erstellt werden`,
+          fehler: newFehler.rows[0],
+        });
+      } else {
+        //Eintrag konnte nicht erstellt werden
+        res.json({
+          error: false,
+          message: `Der Eintrag wurde erfolgreich erstellt`,
+        });
+      }
     }
-  }
   } catch (err) {
     console.error(err.message);
   }
@@ -87,7 +103,7 @@ router.get("/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const fehlerid = await pool.query(
-      "SELECT * FROM fehler WHERE fehlerid = $1",
+      "SELECT * FROM fehler f, software s, anwender a WHERE fehlerid = $1 AND f.softwareid = s.softwareid AND f.anwenderid = a.anwenderid",
       [id]
     );
 
