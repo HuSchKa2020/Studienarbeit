@@ -1,7 +1,6 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-// ToDo Datum in Datebank zum fehler
 const Fehlerzeile = ({
   fehlerid,
   titel,
