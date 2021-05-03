@@ -103,25 +103,28 @@ const Fehlersuche = () => {
       </div>
       <div className="field" id="statusContainer">
         <label>Status</label>
-        <input
-          className="inputField"
-          type="text"
-          id="status"
-          name="status"
+        <select
+          id="StatusContainer"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
-        />
+        >
+          <option value=""></option>
+          <option value="behoben">behoben</option>
+          <option value="offen">offen</option>
+        </select>
       </div>
       <div className="field" id="auswirkungContainer">
         <label>Auswirkung</label>
-        <input
-          className="inputField"
-          type="text"
-          id="auswirkung"
-          name="auswirkung"
-          value={auswirkung}
+        <select
+          id="AuswirkungContainer"
           onChange={(e) => setAuswirkung(e.target.value)}
-        />
+          value={auswirkung}
+        >
+          <option value=""></option>
+          <option value="niedrig">Niedrig</option>
+          <option value="mittel">Mittel</option>
+          <option value="Hoch">Hoch</option>
+        </select>
       </div>
       <div className="field" id="softwareContainer">
         <label>Software</label>
