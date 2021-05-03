@@ -3,7 +3,7 @@ import "./Home.css";
 import Calendar from "react-calendar";
 import "react-calendar/dist/Calendar.css";
 
-import Fehlerliste from "./Fehlerliste";
+import Fehlerliste from "./FehlerzeileHome";
 
 import { URL_GET_FEHLERSUCHE } from "../constants";
 
@@ -17,10 +17,7 @@ function Home() {
 
     const jsonData = await response.json();
 
-    console.log(jsonData);
-
     if (jsonData.error == true) {
-      console.log("keine Fehler gefunden");
       setFehler([]);
     } else {
       setFehler(jsonData.fehler);

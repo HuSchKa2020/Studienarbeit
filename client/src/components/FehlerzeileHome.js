@@ -1,7 +1,7 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 
-const Fehlerlisten = ({ fehlerid, titel, softwarename, erstellt_am }) => {
+const FehlerzeileHome = ({ fehlerid, titel, softwarename, erstellt_am }) => {
   const history = useHistory();
 
   return (
@@ -24,4 +24,4 @@ const Fehlerlisten = ({ fehlerid, titel, softwarename, erstellt_am }) => {
   );
 };
 
-export default Fehlerlisten;
+export default FehlerzeileHome;
