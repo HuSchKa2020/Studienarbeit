@@ -86,25 +86,18 @@ const Fehlersuche = () => {
           onChange={(e) => setTitel(e.target.value)}
         />
       </div>
-      <div className="field" id="loesungContainer">
-        <label>Lösung</label>
-        <input
-          className="inputField"
-          type="text"
-          id="loesung"
-          name="loesung"
-          value={loesung}
-          onChange={(e) => setLoesung(e.target.value)}
-        />
-      </div>
       <div className="field" id="dateContainer">
         <label>Datum</label>
-        <DatePicker selected={date} onChange={(date) => setDate(date)} />
+        <DatePicker
+          id="DateSuche"
+          selected={date}
+          onChange={(date) => setDate(date)}
+        />
       </div>
       <div className="field" id="statusContainer">
         <label>Status</label>
         <select
-          id="StatusContainer"
+          id="StatusSuche"
           value={status}
           onChange={(e) => setStatus(e.target.value)}
         >
@@ -116,7 +109,7 @@ const Fehlersuche = () => {
       <div className="field" id="auswirkungContainer">
         <label>Auswirkung</label>
         <select
-          id="AuswirkungContainer"
+          id="AuswirkungSuche"
           onChange={(e) => setAuswirkung(e.target.value)}
           value={auswirkung}
         >
@@ -128,7 +121,10 @@ const Fehlersuche = () => {
       </div>
       <div className="field" id="softwareContainer">
         <label>Software</label>
-        <select onChange={(e) => setausgewaehlteSoftware(e.target.value)}>
+        <select
+          id="SoftwareSuche"
+          onChange={(e) => setausgewaehlteSoftware(e.target.value)}
+        >
           <option value=""></option>
           {software.map((software) => (
             <option value={software.softwareid}>{software.softwarename}</option>
