@@ -1,7 +1,10 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { URL_GET_ID_FEHLERSUCHE } from "../constants";
+import {
+  URL_GET_ID_FEHLERSUCHE,
+  URL_DELETE_FEHLERLOESCHEN,
+} from "../constants";
 
 import "./Fehleransicht.css";
 
@@ -33,8 +36,25 @@ const Fehler = () => {
     getFehler();
   }, []);
 
+  const deleteFehler = async (fehlerid) => {
+    try {
+      const deleteFehler = await fetch(URL_DELETE_FEHLERLOESCHEN + fehlerid, {
+        method: "DELETE",
+      });
+
+      const json = await deleteFehler.json();
+      if (json.error === false) {
+        window.location.href = "/fehler";
+      } else {
+        console.log("Löschen war nicht erfolgreich");
+      }
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
   return (
-    <article className="grid-box">
+    <article className="grid-box" key={fehler.fehlerid}>
       <div className="box-ID">
         <p id="einzelFehlerID">ID: {fehler.fehlerid}</p>
       </div>
@@ -86,6 +106,14 @@ const Fehler = () => {
         <p className="einzelFehlerInhalt">
           {fehler.erstellt_am.substring(0, 10)}
         </p>
+      </div>
+      <div id="box-Button">
+        <button
+          className="LoeschenButton"
+          onClick={() => deleteFehler(fehler.fehlerid)}
+        >
+          Löschen
+        </button>
       </div>
     </article>
   );
