@@ -64,4 +64,103 @@ router.get("/:id", async (req, res) => {
   }
 });
 
+//create Software
+router.post("/", async (req,res) =>{
+  try {
+    const{
+      hersteller,
+      softwarename,
+    } = req.body;
+    if(hersteller === "" || softwarename === "" ) {
+    res.json({
+      error: true,
+      message: "ungültige Eingabe, die neue Software konnte nicht aufgenommen werden",
+    });
+  }else {
+    const newSoftware = await pool.query(
+      "INSERT INTO software (hersteller, softwarename) VALUES($1, $2) RETURNING *;",
+    [
+      hersteller,
+      softwarename,
+    ]
+    );
+
+    if (newSoftware.rowCount === 0) {
+      res.json({
+        error:true,
+        message: "Eintrag konnte nicht erstellt werden",
+        
+      });
+    } else {
+      res.json({
+        error: false,
+        message: "Der Eintrag wurde erfolgreich erstellt",
+        software: newSoftware.rows[0],
+      });
+    }
+  }
+  } catch (err) {
+    console.log(err.message);
+  }
+});
+
+//update Software
+router.put("/:softwareid", async (req,res) =>{
+  try{
+    const { softwareid } = req.params;
+    const {
+      hersteller,
+      softwarename,
+    } = req.body;
+
+    const updateSoftware = await pool.query(
+      "UPDATE software SET hersteller = $2, softwarename = $3 WHERE softwareid = $1 Returning *;",
+      [
+        softwareid,
+        hersteller,
+        softwarename,
+      ]
+    );
+
+    if(updateSoftware.rowCount === 0) {
+      res.json({
+        error: true,
+        message: "der Eintrag konnte nicht erstellt werden, da dieser nicht existiert",
+      });
+    }else{
+      res.json({
+        error: false,
+        message: "Der Eintrag wurde erfolgreich geändert",
+        software: updateSoftware.rows[0],
+      });
+    }
+  }catch (err) {
+    console.log(err.message);
+  }
+});
+
+//Delete Software
+router.delete("/:id", async (req,res) => {
+  try{
+    const { id } = req.params;
+    const deleteSoftware = await pool.query (
+      "DELETE FROM software WHERE softwareid = $1;",
+      [id]
+    );
+    res.status(200);
+
+    if (deleteSoftware.rowCount > 0) {
+      res.json ({
+        error: false, message: `Fehler: ${id} gelöscht!`
+      })
+    }else {
+      res.json({
+        error: true,
+        message: `Fehler: ${id} existiert noch nicht` 
+      });
+    }
+  }catch (err) {
+    console.log(err.message);
+  }
+});
 module.exports = router;
