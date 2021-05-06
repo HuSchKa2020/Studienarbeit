@@ -92,12 +92,21 @@ router.get("/logout", (req, res) => {
   }
 });
 
-router.get("/", (req, res) => {
+router.get("/", async (req, res) => {
   if (req.user) {
+    const berechtigungen = await pool.query(
+      `SELECT b.berechtigungsid, beschreibung
+      FROM anwenderrolle ar, rollenberechtigung rb, berechtigung b
+      WHERE ar.anwenderid = $1 AND ar.rollenid = rb.rollenid AND rb.berechtigungsid = b.berechtigungsid`,
+      [req.user.anwenderid]
+    );
+
     res.send({
       error: false,
       loggedIn: true,
       message: "Nutzer angemeldet!",
+      user: { ...req.user },
+      berechtigungen: [...berechtigungen.rows],
     });
   } else {
     res.send({
@@ -108,24 +117,16 @@ router.get("/", (req, res) => {
   }
 });
 
-router.get("/berechtigungen", async (req, res) => {
+router.get("/berechtigungen/:id", async (req, res) => {
   try {
-    console.log(req.user);
+    const { id } = req.params;
+
     const berechtigungen = await pool.query(
       `SELECT b.berechtigungsid, beschreibung
       FROM anwenderrolle ar, rollenberechtigung rb, berechtigung b
       WHERE ar.anwenderid = $1 AND ar.rollenid = rb.rollenid AND rb.berechtigungsid = b.berechtigungsid`,
-      [req.user.anwenderid]
+      [id]
     );
-
-    // const berechtigungen = await pool.query(
-    //   `SELECT *
-    //   FROM anwenderrolle ar
-    //   WHERE ar.anwenderid = $1`,
-    //   [req.user.anwenderid]
-    // );
-
-    console.log(berechtigungen.rows);
 
     res.send({
       error: false,
