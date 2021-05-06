@@ -22,9 +22,9 @@ VALUES
 
 INSERT INTO berechtigung (berechtigungsID, beschreibung)
 VALUES
-    (1, 'lesen'),
-    (2, 'schreiben'),
-    (3, 'loeschen')
+    (1, 'read'),
+    (2, 'write'),
+    (3, 'analyse')
 ;
 
 INSERT INTO software (hersteller,softwarename)
@@ -36,7 +36,8 @@ VALUES
 
 INSERT INTO rollenberechtigung (rollenid,berechtigungsid)
 VALUES
+    (1,1),
     (1,2),
     (2,1),
-    (2,2)
+    (2,3)
 ;
