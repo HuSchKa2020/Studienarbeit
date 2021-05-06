@@ -16,7 +16,7 @@ const Fehlersuche = () => {
   const [auswirkung, setAuswirkung] = useState("");
   const [software, setSoftware] = useState([]); // alle Softwares im Dropdown
   const [ausgewaehlteSoftware, setausgewaehlteSoftware] = useState("");
-  const [date, setDate] = useState(new Date());
+  const [date, setDate] = useState(null);
 
   const getFehler = async () => {
     // URL bauen
@@ -40,9 +40,12 @@ const Fehlersuche = () => {
       "&auswirkung=" +
       params.auswirkung +
       "&softwareid=" +
-      params.softwareid +
-      "&date=" +
-      params.date;
+      params.softwareid;
+
+    console.log(date);
+    console.log(date === null);
+    if (date !== null) url += "&date=" + params.date;
+
     const response = await fetch(url);
 
     const jsonData = await response.json();
@@ -87,7 +90,12 @@ const Fehlersuche = () => {
         />
       </div>
       <div className="field" id="dateContainer">
-        <label>Datum</label>
+        <div style={{ display: "flex" }}>
+          <label>Datum</label>
+          <label onClick={() => setDate(null)} className="link">
+            Clear
+          </label>
+        </div>
         <DatePicker
           id="DateSuche"
           selected={date}

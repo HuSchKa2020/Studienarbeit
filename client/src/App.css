@@ -28,6 +28,13 @@
   color: #61dafb;
 }
 
+.link {
+  margin: 0px 10px;
+  color: blue;
+  font-size: smaller;
+  text-decoration: underline;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
