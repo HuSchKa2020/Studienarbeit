@@ -29,16 +29,37 @@ function App() {
         </Route>
         <>
           <Toolbar />
-          <PrivateRoute exact path="/" component={Home} />
-          <PrivateRoute exact path="/fehler" component={Fehlersuche} />
+          <PrivateRoute exact path="/" component={Home} berechtigungen={[]} />
+          <PrivateRoute
+            exact
+            path="/fehler"
+            component={Fehlersuche}
+            berechtigungen={["read"]}
+          />
           <PrivateRoute
             exact
             path="/fehler/erstellen"
             component={FehlerErstellen}
+            berechtigungen={["write"]}
           />
-          <PrivateRoute exact path="/analyse" component={dummy} />
-          <PrivateRoute exact path="/einstellungen" component={Einstellungen}/>
-          <PrivateRoute exact path="/fehler/ansicht/:id" component={Fehler} />
+          <PrivateRoute
+            exact
+            path="/analyse"
+            component={dummy}
+            berechtigungen={["analyse"]}
+          />
+          <PrivateRoute
+            exact
+            path="/fehler/ansicht/:id"
+            component={Fehler}
+            berechtigungen={["read"]}
+          />
+          <PrivateRoute 
+            exact 
+            path="/einstellungen" 
+            component={Einstellungen}
+            berechtigungen={[]}
+           />
         </>
         <Route exact path="*">
           <p>ERROR</p>
