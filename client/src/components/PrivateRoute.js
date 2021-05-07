@@ -22,13 +22,15 @@ const PrivateRoute = ({ berechtigungen, component: Component, ...rest }) => {
       var berechtigungenUser = [];
       for (let i = 0; i < res.data.berechtigungen.length; i++) {
         berechtigungenUser.push(res.data.berechtigungen[i].beschreibung);
-        console.log(res.data.berechtigungen[i].beschreibung);
+        
       }
 
       setIsBerechtigt(checkBerechtigung(berechtigungenUser, berechtigungen));
+      console.log ("Berechtigung des Nutzer geladen:", res.data.berechtigung);
     });
   }, []);
 
+  
   // prüfen ob der User die Berechtigung besitzt, die er für diese Route brauch
   const checkBerechtigung = (userBerechtigungen, routeBerechtigungen) => {
     // besitzt der Nutzer alle Berechtigungen die für die Route nötig sind, dann soll true return werden, sonst false
