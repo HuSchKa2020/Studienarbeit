@@ -15,6 +15,7 @@ import Fehlersuche from "./components/Fehlersuche";
 import Fehler from "./components/EinzelnerFehler";
 import FehlerErstellen from "./components/FehlerErstellen";
 import Home from "./components/Home";
+import Einstellungen from "./components/Einstellungen";
 
 function App() {
   return (
@@ -53,6 +54,12 @@ function App() {
             component={Fehler}
             berechtigungen={["read"]}
           />
+          <PrivateRoute 
+            exact 
+            path="/einstellungen" 
+            component={Einstellungen}
+            berechtigungen={[]}
+           />
         </>
         <Route exact path="*">
           <p>ERROR</p>

@@ -13,6 +13,8 @@ export const URL_GET_ID_FEHLERSUCHE = ROOT_URL + "/fehler/";
 
 //SOFTWARE
 export const URL_GET_SOFTWARE = ROOT_URL + "/software";
+export const URL_POST_SOFTWARE = ROOT_URL + "/software";
+export const URL_PUT_SOFTWARE = ROOT_URL + "/software";
 
 //ANWENDER
 export const URL_GET_ANWENDER = ROOT_URL + "/anwender";

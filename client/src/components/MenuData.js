@@ -27,4 +27,10 @@ export const MenuData = [
     icon: <IoIcons.IoMdAnalytics />,
     cName: "nav-text",
   },
+  {
+    titel: "Einstellungen",
+    path: "/einstellungen",
+    icon: <IoIcons.IoMdAnalytics />,
+    cName: "nav-text",
+  },
 ];
