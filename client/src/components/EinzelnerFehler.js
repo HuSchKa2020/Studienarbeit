@@ -6,6 +6,9 @@ import {
   URL_DELETE_FEHLERLOESCHEN,
 } from "../constants";
 
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 import "./Fehleransicht.css";
 
 const Fehler = () => {
@@ -46,7 +49,12 @@ const Fehler = () => {
       if (json.error === false) {
         window.location.href = "/fehler";
       } else {
-        console.log("Löschen war nicht erfolgreich");
+        toast.error("Fehler löschen war nicht erfolgreich.", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 6000,
+          closeOnClick: false,
+          hideProgressBar: false,
+        });
       }
     } catch (error) {
       console.log(error.message);
