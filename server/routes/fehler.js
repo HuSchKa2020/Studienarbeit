@@ -12,12 +12,11 @@ router.get("/", async (req, res) => {
       auswirkung = "",
       status = "",
       softwareid = "",
-      date,
+      date = "",
     } = req.query;
 
     const querydate = new Date(date);
     var fehler;
-
     if (date !== "") {
       if (softwareid !== "") {
         //softwareid und datum gesetzt
