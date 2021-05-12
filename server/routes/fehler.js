@@ -11,19 +11,67 @@ router.get("/", async (req, res) => {
       loesung = "",
       auswirkung = "",
       status = "",
+      softwareid = "",
+      date = "",
     } = req.query;
 
-    const allFehler = await pool.query(
-      "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND loesung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = s.softwareid",
-      [
-        "%" + titel + "%",
-        "%" + loesung + "%",
-        "%" + auswirkung + "%",
-        "%" + status + "%",
-      ]
-    );
+    const querydate = new Date(date);
+    var fehler;
+    if (date !== "") {
+      if (softwareid !== "") {
+        //softwareid und datum gesetzt
+        fehler = await pool.query(
+          "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND loesung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = $5 AND DATE(erstellt_am) = $6 AND f.softwareid = s.softwareid",
+          [
+            "%" + titel + "%",
+            "%" + loesung + "%",
+            "%" + auswirkung + "%",
+            "%" + status + "%",
+            softwareid,
+            querydate.toLocaleDateString("en-US"),
+          ]
+        );
+      } else {
+        // datum gesetzt, softwareid nicht
+        fehler = await pool.query(
+          "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND loesung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4  AND DATE(erstellt_am) = $5 AND f.softwareid = s.softwareid",
+          [
+            "%" + titel + "%",
+            "%" + loesung + "%",
+            "%" + auswirkung + "%",
+            "%" + status + "%",
+            querydate.toLocaleDateString("en-US"),
+          ]
+        );
+      }
+    } else {
+      if (softwareid !== "") {
+        // softwareid gesetzt, datum nicht
+        fehler = await pool.query(
+          "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND loesung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4 AND f.softwareid = $5 AND f.softwareid = s.softwareid",
+          [
+            "%" + titel + "%",
+            "%" + loesung + "%",
+            "%" + auswirkung + "%",
+            "%" + status + "%",
+            softwareid,
+          ]
+        );
+      } else {
+        // softwareid und datum nicht gesetzt
+        fehler = await pool.query(
+          "SELECT * FROM fehler f, software s WHERE titel LIKE $1 AND loesung LIKE $2 AND auswirkung LIKE $3 AND status LIKE $4  AND f.softwareid = s.softwareid",
+          [
+            "%" + titel + "%",
+            "%" + loesung + "%",
+            "%" + auswirkung + "%",
+            "%" + status + "%",
+          ]
+        );
+      }
+    }
 
-    if (allFehler.rowCount === 0) {
+    if (fehler.rowCount === 0) {
       res.json({
         error: true,
         message: `Noch kein Fehler vohanden`,
@@ -32,7 +80,7 @@ router.get("/", async (req, res) => {
       res.json({
         error: false,
         message: `Fehler vorhanden`,
-        fehler: allFehler.rows,
+        fehler: fehler.rows,
       });
     }
   } catch (err) {
