@@ -1,12 +1,15 @@
 import React, { useState, useEffect, Component } from "react";
-import { URL_POST_SOFTWARE } from "../constants";
+import { URL_POST_SOFTWARE, URL_GET_SOFTWARE } from "../constants";
 import "./Einstellungen.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Softwarezeile from "./Softwarezeile";
+import Softwaretabelle from "./Softwaretabelle";
 
 const Einstellungen = () => {
   const [hersteller, setHersteller] = useState("");
   const [softwarename, setSoftwarename] = useState("");
+  const [software, setSoftware] = useState([]);
 
 
   const handleSubmit = async (e) => {
@@ -49,6 +52,25 @@ const Einstellungen = () => {
     }
   };
 
+  const getSoftware = async() => {
+
+    var url = URL_GET_SOFTWARE
+
+    const response = await fetch(url);
+    const jsonData = await response.json(url);
+
+    if (jsonData.error === true){
+      console.log("keine Fehler gefunden");
+      setSoftware([]);
+    }else {
+      setSoftware(jsonData.software);
+    }
+  };
+
+  useEffect(() => {
+    getSoftware();
+  }, []);
+
   return (
     <div className="SoftwareContainer">
 
@@ -88,6 +110,32 @@ const Einstellungen = () => {
       >
         <p className="buttontext">Erstellen</p>
       </button>
+
+
+      <div id="SoftwaretabellenContainer">
+        <div className="Software-container-kopf">
+          <div className="Software-item-kopf">
+            <p id="SoftwareID">ID</p>
+          </div>
+
+          <div className="Software-item-kopf">
+            <p className="kopfSoftware">Softwarename</p>
+          </div>
+          <div className="Software-item-kopf">
+            <p  className="kopfSoftware">Softwarehersteller</p>
+          </div>
+        </div>
+
+        <hr id="linie" />
+
+        {software.map((s) => {
+          return (
+            <div className="softwareliste">
+              <Softwarezeile key={s.softwareid} {...s} />
+            </div>
+          );
+        })}
+      </div>
 
     </div>
   );
