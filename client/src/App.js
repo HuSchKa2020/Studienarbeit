@@ -54,12 +54,12 @@ function App() {
             component={Fehler}
             berechtigungen={["read"]}
           />
-          <PrivateRoute 
-            exact 
-            path="/einstellungen" 
+          <PrivateRoute
+            exact
+            path="/einstellungen"
             component={Einstellungen}
-            berechtigungen={[]}
-           />
+            berechtigungen={["settings"]}
+          />
         </>
         <Route exact path="*">
           <p>ERROR</p>
