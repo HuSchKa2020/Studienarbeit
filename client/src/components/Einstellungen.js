@@ -4,7 +4,7 @@ import "./Einstellungen.css";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import Softwarezeile from "./Softwarezeile";
-import Softwaretabelle from "./Softwaretabelle";
+
 
 const Einstellungen = () => {
   const [hersteller, setHersteller] = useState("");
