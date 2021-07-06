@@ -45,7 +45,7 @@ CREATE TABLE Fehler
     Status              VARCHAR(255),
     SoftwareID          INTEGER,
     AnwenderID          INTEGER,
-    erstellt_am         timestamp not null default current_timestamp;
+    erstellt_am         timestamp not null default current_timestamp
 );
 
 CREATE TABLE Software
