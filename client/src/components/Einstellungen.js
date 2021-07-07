@@ -41,6 +41,8 @@ const Einstellungen = () => {
       setHersteller("");
       setSoftwarename("");
 
+      getSoftware();    //Funktion getSoftware wird neu geladen
+
     }else {
             //eintrag konnte nicht erstellt werden
             toast.error(json.message, {
@@ -67,11 +69,14 @@ const Einstellungen = () => {
     }
   };
 
+
   useEffect(() => {
     getSoftware();
   }, []);
 
   return (
+
+
     <div className="SoftwareContainer">
 
       <h1 id="ueberschriftSoftware">Software hinzufügen</h1>
