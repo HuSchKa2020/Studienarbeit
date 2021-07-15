@@ -11,6 +11,11 @@ import "react-toastify/dist/ReactToastify.css";
 
 import "./Fehleransicht.css";
 
+import * as icon from "react-icons/ai";
+
+
+import FehlerBearbeiten from "./FehlerBearbeiten";
+
 const Fehler = () => {
   var path = window.location.pathname;
   path = path.split("/");
@@ -120,8 +125,14 @@ const Fehler = () => {
           className="LoeschenButton"
           onClick={() => deleteFehler(fehler.fehlerid)}
         >
-          Löschen
+          <icon.AiFillDelete />
+        
         </button>
+      </div>
+
+
+      <div>
+        <FehlerBearbeiten />
       </div>
     </article>
   );
