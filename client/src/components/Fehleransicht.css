@@ -206,7 +206,7 @@
   height: 47px;
   font-size: 18px;
   font-weight: bold;
-  background-color: #316fb7;
+  background-color: red;
   color: white;
   border-radius: 20px;
   border: 0;
@@ -214,4 +214,23 @@
 
 .LoeschenButton:hover {
   background-color: rgb(255, 0, 0);
+}
+
+#Fehlerbearb{
+  grid-row-start: 10;
+  grid-column-start: 4;
+  margin-top: 60px;
+  margin-left: 0px;
+}
+.FehlerBearbeiten {
+  margin-left: 45px;
+  margin-top: 2px;
+  width: 150px;
+  height: 47px;
+  font-size: 18px;
+  font-weight: bold;
+  background-color: #316fb7;
+  color: white;
+  border-radius: 20px;
+  border: 0;
 }
