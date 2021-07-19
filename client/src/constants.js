@@ -11,6 +11,7 @@ export const URL_GET_FEHLERSUCHE = ROOT_URL + "/fehler";
 export const URL_POST_FEHLERERSTELLEN = ROOT_URL + "/fehler";
 export const URL_GET_ID_FEHLERSUCHE = ROOT_URL + "/fehler/";
 export const URL_DELETE_FEHLERLOESCHEN = ROOT_URL + "/fehler/";
+export const URL_PUT_FEHLERBEARBEITEN= ROOT_URL + "/fehler/";
 
 //SOFTWARE
 export const URL_GET_SOFTWARE = ROOT_URL + "/software";

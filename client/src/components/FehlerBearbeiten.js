@@ -1,9 +1,11 @@
 import React,{Fragment, useState, useEffect}from 'react';
 import { URL_GET_SOFTWARE, 
 URL_GET_ANWENDER,
-URL_GET_ID_FEHLERSUCHE } from '../constants';
+URL_GET_ID_FEHLERSUCHE,
+URL_PUT_FEHLERBEARBEITEN } from '../constants';
 import { useHistory } from "react-router-dom";
 import * as icon from "react-icons/ai";
+import { toast } from "react-toastify";
 
 
 
@@ -15,7 +17,7 @@ const FehlerBearbeiten = () =>{
   let history = useHistory();
 
 
-  const getFehler = async (fehler) => {
+  const getFehler = async () => {
     var URL = URL_GET_ID_FEHLERSUCHE + id;
     try {
       const response = await fetch(URL);
@@ -24,7 +26,16 @@ const FehlerBearbeiten = () =>{
       if (jsonData.error) {
         history.push("/");
       } else {
+        
         setFehler(jsonData.fehler);
+        setID(jsonData.fehler.fehlerid)
+        setTitel(jsonData.fehler.titel);
+        setBeschreibung(jsonData.fehler.beschreibung);
+        setLoesung(jsonData.fehler.loesung);
+        setAuswirkung(jsonData.fehler.auswirkung);
+        setStatus(jsonData.fehler.status);
+        setSoftwareID(jsonData.fehler.softwareID);
+        setAnwenderID(jsonData.fehler.anwenderID);
       }
     } catch (err) {
       console.log(err.message);
@@ -38,7 +49,8 @@ const FehlerBearbeiten = () =>{
 
   const [fehler, setFehler] = useState("");
 
-  const [titel,setTitel] = useState(fehler.titel);
+  const [fehlerid,setID] = useState("");
+  const [titel,setTitel] = useState("");
   const [beschreibung, setBeschreibung] = useState("");
   const [loesung, setLoesung] = useState("");
   const [auswirkung, setAuswirkung] = useState("");
@@ -49,7 +61,7 @@ const FehlerBearbeiten = () =>{
   const [software, setSoftware] = useState([]);
   const [anwender, setAnwender] = useState([]);
 
-  
+  console.log(softwareID);
 
     //Get-Abfrage für Software-Dropdown
     React.useEffect(() => {
@@ -68,6 +80,8 @@ const FehlerBearbeiten = () =>{
       };
       getSoftware();
     }, []);
+
+    console.log(software);
   
     //Get-Abfrage für Anwender-Dropdown
     React.useEffect(() => {
@@ -87,7 +101,49 @@ const FehlerBearbeiten = () =>{
       getAnwender();
     }, []);
 
-    console.log(fehler);
+    console.log(anwender);
+    
+    const handleSubmit = async (e) =>{
+      e.preventDefault();
+
+      const body = JSON.stringify({
+        titel: titel,
+        beschreibung: beschreibung,
+        loesung: loesung,
+        auswirkung: auswirkung,
+        status: status,
+        softwareid: softwareID,
+        anwenderid: anwenderID,
+      });
+
+      const response = await fetch(URL_PUT_FEHLERBEARBEITEN + fehlerid, {
+        method: "PUT",
+        headers: {
+          "Content-Type":"application/json",
+        },
+        body: body,
+      });
+
+      const json = await response.json();
+
+      if (json.error === false) {
+        toast.success(json.message, {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 6000,
+          closeOnClick: false,
+          hideProgressBar: false,
+        });
+
+      }else {
+        toast.error(json.message, {
+          position: toast.POSITION.BOTTOM_RIGHT,
+          autoClose: 6000,
+          closeOnClick: false,
+          hideProgressBar: false,
+        });
+      }
+
+    };
 
   return(
   <Fragment>
@@ -104,11 +160,23 @@ const FehlerBearbeiten = () =>{
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times; </button>
-        <h4 class="modal-title">Modal Header</h4>
       </div>
 
 
       <div class="modal-body">
+
+        <label id="IDBearbeitenLabel">Fehlerid</label>
+        <div id="IDBearbeitenContainer">
+          <input 
+            type="text"
+            id="IDBearbeitenTextfeld"
+            name="text"
+            value={fehlerid}
+            onChange={(e) => setID(e.target.value)}
+            >
+
+            </input>
+        </div>
 
         <label id="TitelBearbeitenLabel">Titel</label>
         <div id="TitelBearbeitenContainer">
@@ -132,7 +200,7 @@ const FehlerBearbeiten = () =>{
           type="text"
           id="BeschreibungBearbeitenTextfeld"
           name="Beschreibung"
-          value={fehler.beschreibung}
+          value={beschreibung}
           onChange={(e) => setBeschreibung(e.target.value)}
           ></textarea>
       </div>
@@ -143,7 +211,7 @@ const FehlerBearbeiten = () =>{
       <select
           id="AuswirkungBearbeitenContainer"
           onChange={(e) => setAuswirkung(e.target.value)}
-          value={fehler.auswirkung}>
+          value={auswirkung}>
           <option value=""></option>
           <option value="niedrig">Niedrig</option>
           <option value="mittel">Mittel</option>
@@ -158,7 +226,7 @@ const FehlerBearbeiten = () =>{
           type="text"
           id="loesung"
           name="Loesung"
-          value={fehler.loesung}
+          value={loesung}
           onChange={(e) => setLoesung(e.target.value)}
       />
       </div>
@@ -167,7 +235,7 @@ const FehlerBearbeiten = () =>{
 
       <select 
           id="StatusBearbeitenContainer" 
-          value={fehler.status} 
+          value={status} 
           onChange={(e) => setStatus(e.target.value)}>
 
         <option value=""></option>
@@ -192,7 +260,7 @@ const FehlerBearbeiten = () =>{
       <select
         id="AnwenderidBearbeitenContainer"
         onChange={(e) => setAnwenderID(e.target.value)}
-        value={fehler.anwenderID}>
+        value={anwenderID}>
 
         <option value=""></option>
         {anwender.map((anwender) => (
@@ -203,11 +271,17 @@ const FehlerBearbeiten = () =>{
       </select>
 
 
-        <p>Some text in the modal.</p>
+        
       </div>
 
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button 
+        id="btnFehlerÜberarbeiten"
+        type="submit"
+        onClick={handleSubmit}
+        >
+        <p className="buttontext">Bearbeiten</p> 
+        </button>
       </div>
     </div>
 
