@@ -17,19 +17,19 @@ const Fehlerzeile = ({
     >
       <div className="flex-container">
         <div className="flex-item">
-          <p id="id">{fehlerid}</p>
+          <p id="Fehler-ID">{fehlerid}</p>
         </div>
         <div className="flex-item">
-          <h3>{titel}</h3>
+          <p id="Fehler-Titel">{titel}</p>
         </div>
         <div className="flex-item">
-          <p>{status}</p>
+          <p className="Fehler-Tabellen">{status}</p>
         </div>
         <div className="flex-item">
-          <p>{softwarename}</p>
+          <p className="Fehler-Tabellen">{softwarename}</p>
         </div>
         <div className="flex-item">
-          <p>{erstellt_am.substring(0, 10)}</p>
+          <p className="Fehler-Tabellen">{erstellt_am.substring(0, 10)}</p>
         </div>
       </div>
     </article>

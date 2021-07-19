@@ -1,7 +1,8 @@
 #Uberschrift-Home {
   margin-top: 30px;
   margin-left: 320px;
-  font-size: 32px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
 .grid-home {
@@ -39,7 +40,7 @@
   background-color: white;
   text-align: center;
   margin: 1px;
-  margin-top: 3px;
+  margin-top: 5px;
   border-style: solid;
   border-color: #316fb7;
   border-radius: 10px;
@@ -50,17 +51,21 @@
   font-size: 15px;
   width: 180px;
   align-content: center;
+  margin: 0;
+  padding: 10px;
 }
 
 #liste-home-schrift-titel {
   font-size: 15px;
   width: 350px;
   align-content: center;
+  margin: 0;
+  padding: 10px;
 }
 
 #linie2 {
-  margin-top: -10px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   margin-left: 30px;
   width: 700px;
   border: 0;
