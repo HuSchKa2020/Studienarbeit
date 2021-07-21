@@ -10,24 +10,6 @@
   border-radius: 10px;
 }
 
-p {
-  width: 203px;
-}
-
-#id {
-  width: 81px;
-}
-
-h2 {
-  margin: 10px;
-}
-
-h3 {
-  padding: 2px;
-  font-size: 15px;
-  width: 321px;
-}
-
 .Software-container {
   display: flex;
   align-items: center;
@@ -55,7 +37,7 @@ h3 {
 }
 .Software-item-kopf {
   background-color: white;
-  height: 30px;
+  height: 45px;
   font-size: 20px;
   font-weight: bold;
   text-align: center;
@@ -64,7 +46,6 @@ h3 {
   border-style: solid;
   border-color: #316fb7;
   border-radius: 10px;
-  
 }
 #kopftitelSoftware {
   font-size: 20px;
@@ -73,18 +54,21 @@ h3 {
 }
 
 .kopfSoftware {
-  margin-top: 2px;
+  font-size: 20px;
+  margin: 0px;
   width: 450px;
+  padding: 5px;
 }
 
 #SoftwareID {
-  padding: 0%;
-  margin-top: 2px;
+  padding: 5px;
+  margin: 0;
   width: 100px;
+  font-size: 20px;
 }
 
 #linie {
-  margin-top: 0px;
+  margin-top: 15px;
   margin-left: 30px;
   width: 1065px;
   border: 0;
@@ -97,3 +81,17 @@ h3 {
   );
 }
 
+#Softid {
+  margin: 0;
+  padding: 5px;
+}
+
+#SoftName {
+  margin: 0;
+  padding: 5px;
+}
+
+#SoftHersteller {
+  margin: 0;
+  padding: 5px;
+}

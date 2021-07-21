@@ -1,0 +1,152 @@
+.modal-header {
+  background-color: lightskyblue;
+}
+#BearbeitenHeadTitel {
+  width: 750px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: bold;
+  color: #316fb7;
+  margin: 0;
+}
+.modal-content {
+  border-style: solid;
+  border-width: 5px;
+  border-color: #316fb7;
+  border-radius: 10px;
+  margin-top: 55px;
+  margin-left: -50px;
+  width: 700px;
+  height: 600px;
+}
+
+#TitelBearbeitenLabel {
+  font-size: 18px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+#TitelBearbeitenTextfeld {
+  margin: 0px;
+  width: 650px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #316fb7;
+  padding: 5px;
+}
+
+#BeschreibungBearbeitenLabel {
+  font-size: 18px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+#BeschreibungBearbeitenTextfeld {
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #316fb7;
+  padding: 5px;
+}
+
+#AuswirkungBearbeitenLabel {
+  font-size: 18px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+#AuswirkungBearbeitenContainer {
+  text-align: center;
+  width: 100px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #316fb7;
+  padding: 5px;
+}
+
+#StatusBearbeitenLabel {
+  margin-left: 35px;
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#StatusBearbeitenContainer {
+  width: 100px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #316fb7;
+  padding: 5px;
+}
+
+#SoftwareIDBearbeitenLabel {
+  margin-left: 35px;
+  margin-right: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+#SoftwareidBearbeitenContainer {
+  width: 100px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #316fb7;
+  padding: 5px;
+}
+
+#LösungBearbeitenLabel {
+  font-size: 18px;
+  margin: 10px;
+  font-weight: bold;
+}
+
+#LoesungBearbeitenText {
+  width: 650px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #316fb7;
+  padding: 5px;
+}
+
+#AnwenderBearbeitenLabel {
+  font-size: 18px;
+  margin-top: 20px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+#AnwenderidBearbeitenContainer {
+  width: 250px;
+  border-radius: 20px;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #316fb7;
+  padding: 5px;
+}
+
+#btnFehlerÜberarbeiten {
+  background-color: #316fb7;
+  border-radius: 20px;
+  border: none;
+  height: 40px;
+}
+
+#buttontextBearbeiten {
+  font-size: 18px;
+  padding: 5px;
+  color: white;
+}
+
+#btnFehlerÜberarbeiten:hover {
+  background-color: lightskyblue;
+}
+
+.FehlerBearbeiten:hover {
+  background-color: lightskyblue;
+}

@@ -1,60 +1,59 @@
 .SoftwareContainer {
   margin: 10px 300px;
   width: 1100px;
-  height: 700px; 
+  height: 700px;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-rows: 100px 100px 100px;
 }
 
-
-#ueberschriftSoftware{
+#ueberschriftSoftware {
   grid-column-start: 1;
   grid-row-start: 1;
   width: 450px;
   height: 50px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: -60px;
+  font-size: 30px;
+  font-weight: bold;
 }
 
-
-#HerstellerLabel{
+#HerstellerLabel {
   grid-column-start: 1;
   grid-row-start: 2;
   margin: -10px 10px;
-  font-weight: 700
+  font-weight: 700;
 }
-#HerstellerContainer{
+#HerstellerContainer {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 2;
   margin: 20px 0px;
-  
 }
-#hersteller{
+#hersteller {
   width: 1050px;
   height: 30px;
   border-radius: 20px;
 }
 
-#SoftwarenameLabel{
+#SoftwarenameLabel {
   grid-column-start: 1;
   grid-row-start: 3;
   margin: -10px 10px;
-  font-weight: 700
+  font-weight: 700;
 }
-#SoftwarenameContainer{
+#SoftwarenameContainer {
   grid-column-start: 1;
   grid-column-end: 2;
   grid-row-start: 3;
   margin: 20px 0px;
 }
-#softwarename{
+#softwarename {
   width: 1050px;
   height: 30px;
 }
 
-#btnSoftwareErstellen{
+#btnSoftwareErstellen {
   width: 200px;
   height: 50px;
   grid-column-start: 2;
@@ -63,30 +62,28 @@
   text-align: center;
 }
 
-#SoftwaretabellenContainer{
+#SoftwaretabellenContainer {
   grid-column-start: 1;
   grid-row-start: 5;
   grid-column-end: 2;
-  
 }
 
-#softwareName{
+#softwareName {
   width: 450px;
 }
 
-#SoftwareHersteller{
+#SoftwareHersteller {
   width: 450px;
 }
 
-#Softid{
+#Softid {
   width: 100px;
-  }
-  
-  #SoftName{
-    width: 450px;
-  }
-  
-  #SoftHersteller{
-    width: 450px;
-  }
-  
+}
+
+#SoftName {
+  width: 450px;
+}
+
+#SoftHersteller {
+  width: 450px;
+}

@@ -151,7 +151,7 @@ const Fehlersuche = () => {
       <div id="tabellenContainer">
         <div className="flex-container-kopf">
           <div className="flex-item-kopf">
-            <p id="kopfid">ID</p>
+            <p id="Suchtabelle-kopfid">ID</p>
           </div>
           <div className="flex-item-kopf">
             <p id="kopftitel">Titel</p>
