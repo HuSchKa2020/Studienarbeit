@@ -1,4 +1,5 @@
-export const ROOT_URL = "http://localhost:5000";
+//export const ROOT_URL = "http://localhost:5000";
+export const ROOT_URL = "http://3.137.201.169:5001";
 
 // Login und Registrierung
 export const URL_POST_LOGIN = ROOT_URL + "/user/login";

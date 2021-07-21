@@ -80,8 +80,6 @@ const FehlerBearbeiten = () => {
     getSoftware();
   }, []);
 
-  console.log(software);
-
   //Get-Abfrage für Anwender-Dropdown
   React.useEffect(() => {
     const getAnwender = async () => {
@@ -99,8 +97,6 @@ const FehlerBearbeiten = () => {
     };
     getAnwender();
   }, []);
-
-  console.log(anwender);
 
   const handleSubmit = async (e) => {
 
