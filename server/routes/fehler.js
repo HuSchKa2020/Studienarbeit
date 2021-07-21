@@ -185,6 +185,22 @@ router.put("/:fehlerid", async (req, res) => {
       softwareid,
       anwenderid,
     } = req.body;
+    if(  
+      titel === "" ||
+      beschreibung === "" ||
+      loesung === "" ||
+      auswirkung === "" ||
+      status === "" ||
+      softwareid === "" ||
+      anwenderid === ""
+      ){
+
+        res.json({
+          error: true,
+          message: `Ungültige Eingabe. Der Fehler konnte nicht erstellt werden`,
+        });
+
+      } else {
     const updateFehler = await pool.query(
       "UPDATE fehler SET titel = $2, beschreibung = $3, loesung = $4, auswirkung = $5, status = $6, softwareid = $7, anwenderid = $8 WHERE fehlerid = $1 RETURNING *",
       [
@@ -211,6 +227,7 @@ router.put("/:fehlerid", async (req, res) => {
         fehler: updateFehler.rows[0],
       });
     }
+  }
   } catch (err) {
     console.log(err.message);
   }

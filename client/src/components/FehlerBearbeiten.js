@@ -12,6 +12,7 @@ import { toast } from "react-toastify";
 import "./FehlerBearbeiten.css";
 
 const FehlerBearbeiten = () => {
+
   var path = window.location.pathname;
   path = path.split("/");
   var id = path[3];
@@ -33,8 +34,8 @@ const FehlerBearbeiten = () => {
         setLoesung(jsonData.fehler.loesung);
         setAuswirkung(jsonData.fehler.auswirkung);
         setStatus(jsonData.fehler.status);
-        setSoftwareID(jsonData.fehler.softwareID);
-        setAnwenderID(jsonData.fehler.anwenderID);
+        //setSoftwareID(jsonData.fehler.softwareID);
+        //setAnwenderID(jsonData.fehler.anwenderID);
       }
     } catch (err) {
       console.log(err.message);
@@ -102,6 +103,16 @@ const FehlerBearbeiten = () => {
   console.log(anwender);
 
   const handleSubmit = async (e) => {
+
+    var timeout = setTimeout ("windows.location.reload();",6000);
+    const closeWindow = async() =>{
+      
+      clearTimeout(timeout);
+      timeout = setTimeout("window.location.reload();",6000);
+      
+      //window.location.reload();
+    }
+
     e.preventDefault();
 
     const body = JSON.stringify({
@@ -131,6 +142,10 @@ const FehlerBearbeiten = () => {
         closeOnClick: false,
         hideProgressBar: false,
       });
+
+      closeWindow();
+      //setVisible(false)
+
     } else {
       toast.error(json.message, {
         position: toast.POSITION.BOTTOM_RIGHT,
